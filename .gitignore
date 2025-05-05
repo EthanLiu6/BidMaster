@@ -3,6 +3,7 @@
 
 .idea/
 __pycache__
+**/__pycache__/
 .mypy_cache
 
 .vscode
@@ -10,6 +11,6 @@ __pycache__
 .env
 .venv
 
-.ipynb_checkpoints
-*/.ipynb_checkpoints/*
+.ipynb_checkpoints/
+**/.ipynb_checkpoints/*
 .jupyter
