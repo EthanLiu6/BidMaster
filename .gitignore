@@ -10,5 +10,6 @@ __pycache__
 .env
 .venv
 
+.ipynb_checkpoints
 */.ipynb_checkpoints/*
 .jupyter
