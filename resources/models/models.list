@@ -1,0 +1,2 @@
+embedding model: 'moka-ai/m3e-base'
+QA model: 'deepseek-chat'
