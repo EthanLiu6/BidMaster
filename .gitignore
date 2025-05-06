@@ -5,7 +5,6 @@
 __pycache__
 **/__pycache__/
 .mypy_cache
-
 .vscode
 
 .env
@@ -14,3 +13,5 @@ __pycache__
 .ipynb_checkpoints/
 **/.ipynb_checkpoints/*
 .jupyter
+
+**/temp.py
