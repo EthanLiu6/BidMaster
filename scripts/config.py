@@ -1,5 +1,5 @@
 # NOTE: knowledge_categories, knowledge_path和save_db_path必须一一对应（不对应则需要修改代码）
-knowledge_categories = {"法律法规相关": 'laws', "招投标基本知识": 'bid_basic_theory', "招投标已有案例": 'bid_cases'}
+knowledge_categories = {"法律法规相关": 'laws', "基本知识相关": 'bid_basic_theory', "现有案例相关": 'bid_cases'}
 # knowledge and save db path
 pair_data_path = [
     {
@@ -31,12 +31,5 @@ cover_length = 15
 log_file = '../logs/store_vectors_logs.log'
 
 if __name__ == '__main__':
-    # test
-    # for per_pair_data_path in pair_data_path:
-    #     print(per_pair_data_path.keys())
-
-    for idx in range(3):
-        print(knowledge_categories.keys())
-
     pass
 
