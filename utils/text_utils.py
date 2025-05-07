@@ -75,7 +75,7 @@ class TextUtils:
 
         ture_emb_dim = len(texts_embeddings[0])
         assert embedding_dim == ture_emb_dim, f'向量维度不匹配：{embedding_dim}!={ture_emb_dim}'
-
+        logging.info(f'当前向量存储维度：{embedding_dim}')
         data = []
         idx = 0
         for sentence, embedding in zip(chunk_texts_list, texts_embeddings):

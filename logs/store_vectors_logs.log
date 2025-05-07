@@ -737,3 +737,182 @@
 2025-05-06 23:28:20,515 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: moka-ai/m3e-base
 2025-05-06 23:28:24,653 - root - INFO - 创建向量数据库：../knowledge/vector_knowledge/bid_cases.db
 2025-05-06 23:28:24,656 - root - INFO - 使用向量模型：moka-ai/m3e-base
+2025-05-07 20:48:53,506 - root - INFO - 类别列表：['laws', 'bid_basic_theory', 'bid_cases']（英文，用于向量库的'collection_name'）
+2025-05-07 20:48:53,506 - root - INFO - 当前检索到的原数据路径与向量存储路径：{'laws_knowledge_path': '../knowledge/raw_knowledge/laws/', 'save_laws_db_path': '../knowledge/vector_knowledge/laws.db'}
+2025-05-07 20:48:53,506 - root - INFO - 当前检索到的原数据类别：laws
+2025-05-07 20:48:53,507 - root - INFO - 读取到的'laws'类别所有docx路径：['../knowledge/raw_knowledge/laws/中华人民共和国招标投标法实施条例.docx', '../knowledge/raw_knowledge/laws/中华人民共和国政府采购法实施条例.docx', '../knowledge/raw_knowledge/laws/中华人民共和国政府采购法.docx', '../knowledge/raw_knowledge/laws/政府采购项目公开招标文件.docx', '../knowledge/raw_knowledge/laws/北京市招标投标条例.docx']
+2025-05-07 20:48:53,507 - root - INFO - 读取到的'laws'类别所有pdf路径：['../knowledge/raw_knowledge/laws/政府采购质疑和投诉办法.pdf', '../knowledge/raw_knowledge/laws/政府采购货物和服务招标投标管理办法.pdf', '../knowledge/raw_knowledge/laws/政府采购非招标采购方式管理办法.pdf', '../knowledge/raw_knowledge/laws/招标投标领域公平竞争审查规则.pdf']
+2025-05-07 20:48:54,148 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: mps
+2025-05-07 20:48:54,148 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: Qwen/Qwen3-0.6B
+2025-05-07 20:48:59,155 - sentence_transformers.SentenceTransformer - WARNING - No sentence-transformers model found with name Qwen/Qwen3-0.6B. Creating a new one with mean pooling.
+2025-05-07 20:49:08,944 - root - INFO - 创建向量数据库：../knowledge/vector_knowledge/laws.db
+2025-05-07 20:49:08,945 - root - INFO - 使用向量模型：Qwen/Qwen3-0.6B
+2025-05-07 20:49:08,945 - root - INFO - 读取的当前文件：../knowledge/raw_knowledge/laws/中华人民共和国招标投标法实施条例.docx
+2025-05-07 20:49:08,966 - root - INFO - 原文档长度：11990
+2025-05-07 20:49:08,966 - root - INFO - 预切分文本长度：50
+2025-05-07 20:49:08,966 - root - INFO - 切分覆盖长度：15
+2025-05-07 20:49:21,374 - root - INFO - 向量库集合名：laws
+2025-05-07 20:49:22,124 - root - INFO - 读取的当前文件：../knowledge/raw_knowledge/laws/中华人民共和国政府采购法实施条例.docx
+2025-05-07 20:49:22,157 - root - INFO - 原文档长度：10962
+2025-05-07 20:49:22,157 - root - INFO - 预切分文本长度：50
+2025-05-07 20:49:22,157 - root - INFO - 切分覆盖长度：15
+2025-05-07 20:49:31,562 - root - INFO - 向量库集合名：laws
+2025-05-07 20:49:32,205 - root - INFO - 读取的当前文件：../knowledge/raw_knowledge/laws/中华人民共和国政府采购法.docx
+2025-05-07 20:49:32,245 - root - INFO - 原文档长度：9571
+2025-05-07 20:49:32,245 - root - INFO - 预切分文本长度：50
+2025-05-07 20:49:32,245 - root - INFO - 切分覆盖长度：15
+2025-05-07 20:49:42,606 - root - INFO - 向量库集合名：laws
+2025-05-07 20:49:43,313 - root - INFO - 读取的当前文件：../knowledge/raw_knowledge/laws/政府采购项目公开招标文件.docx
+2025-05-07 20:49:43,427 - root - INFO - 原文档长度：30287
+2025-05-07 20:49:43,428 - root - INFO - 预切分文本长度：50
+2025-05-07 20:49:43,428 - root - INFO - 切分覆盖长度：15
+2025-05-07 20:50:13,508 - root - INFO - 向量库集合名：laws
+2025-05-07 20:50:14,366 - root - INFO - 读取的当前文件：../knowledge/raw_knowledge/laws/北京市招标投标条例.docx
+2025-05-07 20:50:14,391 - root - INFO - 原文档长度：6048
+2025-05-07 20:50:14,391 - root - INFO - 预切分文本长度：50
+2025-05-07 20:50:14,391 - root - INFO - 切分覆盖长度：15
+2025-05-07 20:50:20,038 - root - INFO - 向量库集合名：laws
+2025-05-07 20:50:20,622 - root - INFO - 读取的当前文件：../knowledge/raw_knowledge/laws/政府采购质疑和投诉办法.pdf
+2025-05-07 20:50:21,017 - root - INFO - 当前pdf成功转为text，预进行切片
+2025-05-07 20:50:21,017 - root - INFO - 原文档长度：5647
+2025-05-07 20:50:21,017 - root - INFO - 预切分文本长度：50
+2025-05-07 20:50:21,017 - root - INFO - 切分覆盖长度：15
+2025-05-07 20:50:21,017 - root - INFO - 切片成功，进行向量存储...
+2025-05-07 20:50:27,588 - root - INFO - 向量库集合名：laws
+2025-05-07 20:50:28,277 - root - INFO - 当前pdf已向量化存储
+2025-05-07 20:50:28,278 - root - INFO - 读取的当前文件：../knowledge/raw_knowledge/laws/政府采购货物和服务招标投标管理办法.pdf
+2025-05-07 20:50:29,484 - root - INFO - 当前pdf成功转为text，预进行切片
+2025-05-07 20:50:29,484 - root - INFO - 原文档长度：12722
+2025-05-07 20:50:29,484 - root - INFO - 预切分文本长度：50
+2025-05-07 20:50:29,484 - root - INFO - 切分覆盖长度：15
+2025-05-07 20:50:29,484 - root - INFO - 切片成功，进行向量存储...
+2025-05-07 20:50:44,329 - root - INFO - 向量库集合名：laws
+2025-05-07 20:50:44,980 - root - INFO - 当前pdf已向量化存储
+2025-05-07 20:50:44,980 - root - INFO - 读取的当前文件：../knowledge/raw_knowledge/laws/政府采购非招标采购方式管理办法.pdf
+2025-05-07 20:50:45,964 - root - INFO - 当前pdf成功转为text，预进行切片
+2025-05-07 20:50:45,964 - root - INFO - 原文档长度：9559
+2025-05-07 20:50:45,964 - root - INFO - 预切分文本长度：50
+2025-05-07 20:50:45,964 - root - INFO - 切分覆盖长度：15
+2025-05-07 20:50:45,964 - root - INFO - 切片成功，进行向量存储...
+2025-05-07 20:50:56,169 - root - INFO - 向量库集合名：laws
+2025-05-07 20:50:56,765 - root - INFO - 当前pdf已向量化存储
+2025-05-07 20:50:56,765 - root - INFO - 读取的当前文件：../knowledge/raw_knowledge/laws/招标投标领域公平竞争审查规则.pdf
+2025-05-07 20:50:56,923 - root - INFO - 当前pdf成功转为text，预进行切片
+2025-05-07 20:50:56,924 - root - INFO - 原文档长度：3264
+2025-05-07 20:50:56,924 - root - INFO - 预切分文本长度：50
+2025-05-07 20:50:56,924 - root - INFO - 切分覆盖长度：15
+2025-05-07 20:50:56,924 - root - INFO - 切片成功，进行向量存储...
+2025-05-07 20:51:02,511 - root - INFO - 向量库集合名：laws
+2025-05-07 20:51:03,102 - root - INFO - 当前pdf已向量化存储
+2025-05-07 20:51:03,102 - root - INFO - 当前检索到的原数据路径与向量存储路径：{'bid_basic_theory_knowledge_path': '../knowledge/raw_knowledge/bid_basic_theory/', 'save_bid_basic_theory_db_path': '../knowledge/vector_knowledge/bid_basic_theory.db'}
+2025-05-07 20:51:03,102 - root - INFO - 当前检索到的原数据类别：bid_basic_theory
+2025-05-07 20:51:03,105 - root - INFO - 读取到的'bid_basic_theory'类别所有docx路径：[]
+2025-05-07 20:51:03,105 - root - INFO - 读取到的'bid_basic_theory'类别所有pdf路径：[]
+2025-05-07 20:51:03,769 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: mps
+2025-05-07 20:51:03,770 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: Qwen/Qwen3-0.6B
+2025-05-07 20:51:04,350 - sentence_transformers.SentenceTransformer - WARNING - No sentence-transformers model found with name Qwen/Qwen3-0.6B. Creating a new one with mean pooling.
+2025-05-07 20:51:24,945 - root - INFO - 创建向量数据库：../knowledge/vector_knowledge/bid_basic_theory.db
+2025-05-07 20:51:24,946 - root - INFO - 使用向量模型：Qwen/Qwen3-0.6B
+2025-05-07 20:51:24,946 - root - INFO - 当前检索到的原数据路径与向量存储路径：{'bid_cases_knowledge_path': '../knowledge/raw_knowledge/bid_cases/', 'save_bid_cases_db_path': '../knowledge/vector_knowledge/bid_cases.db'}
+2025-05-07 20:51:24,946 - root - INFO - 当前检索到的原数据类别：bid_cases
+2025-05-07 20:51:24,947 - root - INFO - 读取到的'bid_cases'类别所有docx路径：[]
+2025-05-07 20:51:24,947 - root - INFO - 读取到的'bid_cases'类别所有pdf路径：[]
+2025-05-07 20:51:25,559 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: mps
+2025-05-07 20:51:25,559 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: Qwen/Qwen3-0.6B
+2025-05-07 20:51:25,939 - sentence_transformers.SentenceTransformer - WARNING - No sentence-transformers model found with name Qwen/Qwen3-0.6B. Creating a new one with mean pooling.
+2025-05-07 20:51:34,879 - root - INFO - 创建向量数据库：../knowledge/vector_knowledge/bid_cases.db
+2025-05-07 20:51:34,880 - root - INFO - 使用向量模型：Qwen/Qwen3-0.6B
+2025-05-07 20:52:15,361 - root - INFO - 类别列表：['laws', 'bid_basic_theory', 'bid_cases']（英文，用于向量库的'collection_name'）
+2025-05-07 20:52:15,362 - root - INFO - 当前检索到的原数据路径与向量存储路径：{'laws_knowledge_path': '../knowledge/raw_knowledge/laws/', 'save_laws_db_path': '../knowledge/vector_knowledge/laws.db'}
+2025-05-07 20:52:15,362 - root - INFO - 当前检索到的原数据类别：laws
+2025-05-07 20:52:15,362 - root - INFO - 读取到的'laws'类别所有docx路径：['../knowledge/raw_knowledge/laws/中华人民共和国招标投标法实施条例.docx', '../knowledge/raw_knowledge/laws/中华人民共和国政府采购法实施条例.docx', '../knowledge/raw_knowledge/laws/中华人民共和国政府采购法.docx', '../knowledge/raw_knowledge/laws/政府采购项目公开招标文件.docx', '../knowledge/raw_knowledge/laws/北京市招标投标条例.docx']
+2025-05-07 20:52:15,362 - root - INFO - 读取到的'laws'类别所有pdf路径：['../knowledge/raw_knowledge/laws/政府采购质疑和投诉办法.pdf', '../knowledge/raw_knowledge/laws/政府采购货物和服务招标投标管理办法.pdf', '../knowledge/raw_knowledge/laws/政府采购非招标采购方式管理办法.pdf', '../knowledge/raw_knowledge/laws/招标投标领域公平竞争审查规则.pdf']
+2025-05-07 20:52:15,989 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: mps
+2025-05-07 20:52:15,989 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: Qwen/Qwen3-0.6B
+2025-05-07 20:52:16,524 - sentence_transformers.SentenceTransformer - WARNING - No sentence-transformers model found with name Qwen/Qwen3-0.6B. Creating a new one with mean pooling.
+2025-05-07 20:52:20,900 - root - INFO - 创建向量数据库：../knowledge/vector_knowledge/laws.db
+2025-05-07 20:52:20,901 - root - INFO - 使用向量模型：Qwen/Qwen3-0.6B
+2025-05-07 20:52:20,901 - root - INFO - 读取的当前文件：../knowledge/raw_knowledge/laws/中华人民共和国招标投标法实施条例.docx
+2025-05-07 20:52:20,922 - root - INFO - 原文档长度：11990
+2025-05-07 20:52:20,922 - root - INFO - 预切分文本长度：50
+2025-05-07 20:52:20,922 - root - INFO - 切分覆盖长度：15
+2025-05-07 20:52:31,883 - root - INFO - 当前向量存储维度：1024
+2025-05-07 20:52:31,885 - root - INFO - 向量库集合名：laws
+2025-05-07 20:52:32,588 - root - INFO - 读取的当前文件：../knowledge/raw_knowledge/laws/中华人民共和国政府采购法实施条例.docx
+2025-05-07 20:52:32,608 - root - INFO - 原文档长度：10962
+2025-05-07 20:52:32,608 - root - INFO - 预切分文本长度：50
+2025-05-07 20:52:32,608 - root - INFO - 切分覆盖长度：15
+2025-05-07 20:52:42,384 - root - INFO - 当前向量存储维度：1024
+2025-05-07 20:52:42,385 - root - INFO - 向量库集合名：laws
+2025-05-07 20:52:42,977 - root - INFO - 读取的当前文件：../knowledge/raw_knowledge/laws/中华人民共和国政府采购法.docx
+2025-05-07 20:52:43,005 - root - INFO - 原文档长度：9571
+2025-05-07 20:52:43,005 - root - INFO - 预切分文本长度：50
+2025-05-07 20:52:43,005 - root - INFO - 切分覆盖长度：15
+2025-05-07 20:52:52,131 - root - INFO - 当前向量存储维度：1024
+2025-05-07 20:52:52,132 - root - INFO - 向量库集合名：laws
+2025-05-07 20:52:52,749 - root - INFO - 读取的当前文件：../knowledge/raw_knowledge/laws/政府采购项目公开招标文件.docx
+2025-05-07 20:52:52,859 - root - INFO - 原文档长度：30287
+2025-05-07 20:52:52,859 - root - INFO - 预切分文本长度：50
+2025-05-07 20:52:52,859 - root - INFO - 切分覆盖长度：15
+2025-05-07 20:53:21,327 - root - INFO - 当前向量存储维度：1024
+2025-05-07 20:53:21,331 - root - INFO - 向量库集合名：laws
+2025-05-07 20:53:22,250 - root - INFO - 读取的当前文件：../knowledge/raw_knowledge/laws/北京市招标投标条例.docx
+2025-05-07 20:53:22,284 - root - INFO - 原文档长度：6048
+2025-05-07 20:53:22,284 - root - INFO - 预切分文本长度：50
+2025-05-07 20:53:22,284 - root - INFO - 切分覆盖长度：15
+2025-05-07 20:53:28,189 - root - INFO - 当前向量存储维度：1024
+2025-05-07 20:53:28,190 - root - INFO - 向量库集合名：laws
+2025-05-07 20:53:28,850 - root - INFO - 读取的当前文件：../knowledge/raw_knowledge/laws/政府采购质疑和投诉办法.pdf
+2025-05-07 20:53:29,233 - root - INFO - 当前pdf成功转为text，预进行切片
+2025-05-07 20:53:29,233 - root - INFO - 原文档长度：5647
+2025-05-07 20:53:29,233 - root - INFO - 预切分文本长度：50
+2025-05-07 20:53:29,233 - root - INFO - 切分覆盖长度：15
+2025-05-07 20:53:29,234 - root - INFO - 切片成功，进行向量存储...
+2025-05-07 20:53:35,064 - root - INFO - 当前向量存储维度：1024
+2025-05-07 20:53:35,065 - root - INFO - 向量库集合名：laws
+2025-05-07 20:53:35,721 - root - INFO - 当前pdf已向量化存储
+2025-05-07 20:53:35,721 - root - INFO - 读取的当前文件：../knowledge/raw_knowledge/laws/政府采购货物和服务招标投标管理办法.pdf
+2025-05-07 20:53:36,890 - root - INFO - 当前pdf成功转为text，预进行切片
+2025-05-07 20:53:36,890 - root - INFO - 原文档长度：12722
+2025-05-07 20:53:36,890 - root - INFO - 预切分文本长度：50
+2025-05-07 20:53:36,890 - root - INFO - 切分覆盖长度：15
+2025-05-07 20:53:36,890 - root - INFO - 切片成功，进行向量存储...
+2025-05-07 20:53:50,076 - root - INFO - 当前向量存储维度：1024
+2025-05-07 20:53:50,079 - root - INFO - 向量库集合名：laws
+2025-05-07 20:53:50,716 - root - INFO - 当前pdf已向量化存储
+2025-05-07 20:53:50,716 - root - INFO - 读取的当前文件：../knowledge/raw_knowledge/laws/政府采购非招标采购方式管理办法.pdf
+2025-05-07 20:53:51,411 - root - INFO - 当前pdf成功转为text，预进行切片
+2025-05-07 20:53:51,411 - root - INFO - 原文档长度：9559
+2025-05-07 20:53:51,411 - root - INFO - 预切分文本长度：50
+2025-05-07 20:53:51,411 - root - INFO - 切分覆盖长度：15
+2025-05-07 20:53:51,411 - root - INFO - 切片成功，进行向量存储...
+2025-05-07 20:54:00,197 - root - INFO - 当前向量存储维度：1024
+2025-05-07 20:54:00,199 - root - INFO - 向量库集合名：laws
+2025-05-07 20:54:00,878 - root - INFO - 当前pdf已向量化存储
+2025-05-07 20:54:00,878 - root - INFO - 读取的当前文件：../knowledge/raw_knowledge/laws/招标投标领域公平竞争审查规则.pdf
+2025-05-07 20:54:01,027 - root - INFO - 当前pdf成功转为text，预进行切片
+2025-05-07 20:54:01,027 - root - INFO - 原文档长度：3264
+2025-05-07 20:54:01,027 - root - INFO - 预切分文本长度：50
+2025-05-07 20:54:01,027 - root - INFO - 切分覆盖长度：15
+2025-05-07 20:54:01,027 - root - INFO - 切片成功，进行向量存储...
+2025-05-07 20:54:04,150 - root - INFO - 当前向量存储维度：1024
+2025-05-07 20:54:04,150 - root - INFO - 向量库集合名：laws
+2025-05-07 20:54:04,708 - root - INFO - 当前pdf已向量化存储
+2025-05-07 20:54:04,709 - root - INFO - 当前检索到的原数据路径与向量存储路径：{'bid_basic_theory_knowledge_path': '../knowledge/raw_knowledge/bid_basic_theory/', 'save_bid_basic_theory_db_path': '../knowledge/vector_knowledge/bid_basic_theory.db'}
+2025-05-07 20:54:04,709 - root - INFO - 当前检索到的原数据类别：bid_basic_theory
+2025-05-07 20:54:04,713 - root - INFO - 读取到的'bid_basic_theory'类别所有docx路径：[]
+2025-05-07 20:54:04,714 - root - INFO - 读取到的'bid_basic_theory'类别所有pdf路径：[]
+2025-05-07 20:54:05,304 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: mps
+2025-05-07 20:54:05,304 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: Qwen/Qwen3-0.6B
+2025-05-07 20:54:05,785 - sentence_transformers.SentenceTransformer - WARNING - No sentence-transformers model found with name Qwen/Qwen3-0.6B. Creating a new one with mean pooling.
+2025-05-07 20:54:30,441 - root - INFO - 创建向量数据库：../knowledge/vector_knowledge/bid_basic_theory.db
+2025-05-07 20:54:30,445 - root - INFO - 使用向量模型：Qwen/Qwen3-0.6B
+2025-05-07 20:54:30,445 - root - INFO - 当前检索到的原数据路径与向量存储路径：{'bid_cases_knowledge_path': '../knowledge/raw_knowledge/bid_cases/', 'save_bid_cases_db_path': '../knowledge/vector_knowledge/bid_cases.db'}
+2025-05-07 20:54:30,445 - root - INFO - 当前检索到的原数据类别：bid_cases
+2025-05-07 20:54:30,447 - root - INFO - 读取到的'bid_cases'类别所有docx路径：[]
+2025-05-07 20:54:30,448 - root - INFO - 读取到的'bid_cases'类别所有pdf路径：[]
+2025-05-07 20:54:31,092 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: mps
+2025-05-07 20:54:31,093 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: Qwen/Qwen3-0.6B
+2025-05-07 20:54:31,484 - sentence_transformers.SentenceTransformer - WARNING - No sentence-transformers model found with name Qwen/Qwen3-0.6B. Creating a new one with mean pooling.
+2025-05-07 20:54:42,029 - root - INFO - 创建向量数据库：../knowledge/vector_knowledge/bid_cases.db
+2025-05-07 20:54:42,030 - root - INFO - 使用向量模型：Qwen/Qwen3-0.6B

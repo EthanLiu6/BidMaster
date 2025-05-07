@@ -19,7 +19,8 @@ pair_data_path = [
 
 # 模型
 llm_model = "Qwen/Qwen3-0.6B"
-emb_model = 'moka-ai/m3e-base'
+# emb_model = 'moka-ai/m3e-base'
+emb_model = 'Qwen/Qwen3-0.6B'
 
 # 句子切分配置
 per_text_length = 50

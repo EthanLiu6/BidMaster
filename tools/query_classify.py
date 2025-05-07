@@ -71,11 +71,12 @@ class QueryTool:
 if __name__ == '__main__':
 
     query_tool = QueryTool(model_name="Qwen/Qwen3-0.6B")
+    # query_tool = QueryTool(model_name="moka-ai/m3e-base")  # m3e做问答生成不行
 
     # question = "政府采购法对投标保证金有什么规定？"
     # question = "招投标的流程是怎样的"
-    # question = "现有哪些采购的中标结果"
-    question = "软件升级服务可以用单一来源采购方式吗？"
+    question = "现有哪些采购的中标结果"
+    # question = "软件升级服务可以用单一来源采购方式吗？"
     print(query_tool.classify_with_local_llm(question))  # 应该输出"法律法规相关"
 
 
