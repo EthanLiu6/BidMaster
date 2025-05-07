@@ -15,7 +15,7 @@ cover_length = config.cover_length
 
 
 def main():
-    categories  = list(knowledge_categories.values())
+    categories = list(knowledge_categories.values())
     logging.info(f"类别列表：{categories}（英文，用于向量库的'collection_name'）")
     for categories_idx, per_pair_data_path in enumerate(pair_data_path):
         category = categories[categories_idx]

@@ -1,3 +1,3 @@
 embedding model: 'moka-ai/m3e-base'
-QA model: 'Qwen3-32B'
+QA model: 'Qwen3-32B'、'DeepSeek-chat'
 User query classify model: "Qwen/Qwen3-0.6B"
