@@ -1,6 +1,7 @@
 from sentence_transformers import SentenceTransformer
 from pymilvus import MilvusClient
 import logging
+from scripts import config
 
 __all__ = ['TextUtils']
 
@@ -12,14 +13,14 @@ class TextUtils:
             save_db_path,
             collection_name,
             encode_model: str,
-            metric_type='IP',
+            metric_type='COSINE',
             consistency_level='Strong'
     ):
         self.collection_name = collection_name
         self._save_db_path = save_db_path  # TODO： 可设计配置文件
         self._milvus_client = MilvusClient(uri=self._save_db_path, metric_type=metric_type,
                                            consistency_level=consistency_level)  # TODO： 可设计配置文件
-        self._encode_model = SentenceTransformer(encode_model)  # TODO： 可设计配置文件
+        self._encode_model = SentenceTransformer(encode_model, device=config.device)
 
     def chunk_texts(
             self,
@@ -81,7 +82,6 @@ class TextUtils:
         for sentence, embedding in zip(chunk_texts_list, texts_embeddings):
             data.append({"id": idx, "sentence": sentence, "vector": embedding, "from_doc": from_doc})
             idx += 1
-
         logging.info(f'向量库集合名：{self.collection_name}')
         if self._milvus_client.has_collection(self.collection_name):
             self._milvus_client.drop_collection(self.collection_name)
@@ -89,7 +89,7 @@ class TextUtils:
         self._create_tables(self.collection_name, embedding_dim)
 
 
-        self._milvus_client.insert(auto_id=True, collection_name=self.collection_name, data=data)
+        self._milvus_client.insert(collection_name=self.collection_name, data=data)
 
     def search_from_milvus_client(
             self,
@@ -105,7 +105,7 @@ class TextUtils:
 
             limit=limit,  # Return top limit results
             search_params={"metric_type": "IP", "params": {}},  # Inner product distance
-            output_fields=["sentence"],  # Return the sentence field
+            output_fields=["sentence", "from_docs"],  # Return the sentence field
         )
 
         return search_res
