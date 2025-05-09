@@ -1,12 +1,17 @@
 import logging
+import os
 import warnings
+from typing import List
 
+# import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
-from openai import OpenAI
+# from openai import OpenAI
 from pymilvus.milvus_client import MilvusClient
 
+from scripts import config
 from scripts.config import knowledge_categories
 
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
 warnings.filterwarnings('ignore')
 
 
@@ -83,6 +88,7 @@ class QueryTool:
 
 class Chat:
     """负责主要QA的chat"""
+
     def __init__(self, chat_model):
         self.query_tool = QueryTool(chat_model, valid_categories=knowledge_categories.keys())
 
@@ -125,8 +131,33 @@ class Chat:
 
 
 class ChatMilvusClient:
-    def __init__(self, ):
-        self._milvus_client = MilvusClient()
+    def __init__(self, uri, *args):
+        self._milvus_client = MilvusClient(uri=uri)
+
+    def search_knowledge(self,
+                         collection_name,
+                         chat_model,
+                         limit=3
+                         ) -> List[List[dict]]:
+        """
+        Returns:
+                List[List[dict]]: A nested list of dicts containing the result data. Embeddings are
+                not included in the result data.
+        """
+        question_emb = chat_model.get_embedding(question)
+        question_emb_list = question_emb.tolist()[0]
+        logging.info(f'当前问题进行embedding后的 list shape：{len(question_emb_list), len(question_emb_list[0])}')
+
+        search_res = self._milvus_client.search(
+            collection_name=collection_name,
+            data=question_emb_list,
+            limit=limit,  # Return top limit results
+            # TODO: metric_type改写到配置文件
+            search_params={"metric_type": "COSINE", "params": {}},  # Inner product distance
+            output_fields=["sentence", "from_doc"]
+        )
+
+        return search_res
 
 
 class ChatModel:
@@ -136,13 +167,23 @@ class ChatModel:
         self.model = AutoModelForCausalLM.from_pretrained(
             model_name,
             torch_dtype="auto",
-            device_map="auto"
+            device_map=config.device
+
         )
 
+    def get_embedding(self, text):
+        inputs = self.tokenizer(text, return_tensors="pt", padding=True, truncation=True).to(self.model.device)
+        input_ids = inputs['input_ids']
+        logging.info(f'当前text的token_ids：{input_ids}')
+        embeddings = self.model.get_input_embeddings()(input_ids)
+        logging.info(f'向量化后的 tensor shape：{embeddings.shape}')
+
+        return embeddings
 
 
 if __name__ == '__main__':
     from tools import log_tool
+
     log_tool.set_log()
 
     chat_model = ChatModel(model_name="Qwen/Qwen3-0.6B")
@@ -158,3 +199,11 @@ if __name__ == '__main__':
     cls = query_tool.classify_with_local_llm(question)
     print('*' * 30)
     print(cls)
+
+    collection_name = knowledge_categories[cls]
+    chat_milvus_client = ChatMilvusClient(uri="../knowledge/vector_knowledge/laws.db")
+    search_res = chat_milvus_client.search_knowledge(chat_model=chat_model,
+                                                     collection_name=collection_name)
+    # for info in search_res:
+    #     print(info)
+    print(search_res)

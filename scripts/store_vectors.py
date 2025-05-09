@@ -1,10 +1,13 @@
 import logging
+import os
 from tools.log_tool import set_log
 
 from utils.text_utils import TextUtils
 from utils import docs_utils
 from tools.docs_tools import DocsTools
 import config
+
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 knowledge_categories = config.knowledge_categories
 # 字典类型不同类别原数据和存储数据的路径

@@ -1,5 +1,5 @@
 # NOTE: knowledge_categories, knowledge_path和save_db_path必须一一对应（不对应则需要修改代码）
-knowledge_categories = {"法律法规相关": 'laws', "基本知识相关": 'bid_basic_theory', "现有案例相关": 'bid_cases'}
+knowledge_categories = {"招投标法律规范相关": 'laws', "招投标流程相关": 'bid_basic_theory', "现有招投标案例": 'bid_cases'}
 # knowledge and save db path
 pair_data_path = [
     {
@@ -19,13 +19,15 @@ pair_data_path = [
 
 # 模型
 llm_model = "Qwen/Qwen3-0.6B"
+# llm_model = "Qwen/Qwen3-1.7B"
 # emb_model = 'moka-ai/m3e-base'
 emb_model = 'Qwen/Qwen3-0.6B'
 
 # 句子切分配置
-per_text_length = 50
-cover_length = 15
+per_text_length = 512
+cover_length = 16
 
+device = "cpu"
 
 # log file
 log_file = '../logs/store_vectors_logs.log'
