@@ -2319,3 +2319,466 @@
           11319]])
 2025-05-10 00:17:51,246 - root - INFO - 向量化后的 tensor shape：torch.Size([1, 10, 1024])
 2025-05-10 00:17:51,247 - root - INFO - 当前问题进行embedding后的 list shape：(10, 1024)
+2025-05-10 14:21:02,988 - root - INFO - 当前知识数据库含有类别：['招投标法律规范相关', '招投标流程相关', '现有招投标案例']
+2025-05-10 14:21:06,328 - root - INFO - 当前知识类别分类回复：
+ 你是分类助手，请将用户的问题分类为以下类别之一：['招投标法律规范相关', '招投标流程相关', '现有招投标案例']。直接输出分类结果，不要解释。
+    用户问题：软件升级服务可以用单一来源采购方式吗？
+    分类结果：招投标流程相关
+    （分类标准是：根据用户问题内容，判断
+2025-05-10 14:21:06,328 - root - INFO - 当前识别类别：招投标流程相关
+2025-05-10 14:21:06,920 - root - INFO - 当前text的token_ids：tensor([[103951, 100402,  47874, 106782, 106215,  89161, 102049,  75768, 101037,
+          11319]])
+2025-05-10 14:21:06,921 - root - INFO - 向量化后的 tensor shape：torch.Size([1, 10, 1024])
+2025-05-10 14:21:06,921 - root - INFO - 当前问题进行embedding后的 list shape：(10, 1024)
+2025-05-10 14:21:35,962 - root - INFO - 当前知识数据库含有类别：['招投标法律规范相关', '招投标流程相关', '现有招投标案例']
+2025-05-10 14:21:38,063 - root - INFO - 当前知识类别分类回复：
+ 你是分类助手，请将用户的问题分类为以下类别之一：['招投标法律规范相关', '招投标流程相关', '现有招投标案例']。直接输出分类结果，不要解释。
+    用户问题：软件升级服务可以用单一来源采购方式吗？
+    分类结果：招投标法律规范相关
+
+根据以上规则，用户的问题应归类到哪个
+2025-05-10 14:21:38,063 - root - INFO - 当前识别类别：招投标法律规范相关
+2025-05-10 14:21:38,641 - root - INFO - 当前text的token_ids：tensor([[103951, 100402,  47874, 106782, 106215,  89161, 102049,  75768, 101037,
+          11319]])
+2025-05-10 14:21:38,642 - root - INFO - 向量化后的 tensor shape：torch.Size([1, 10, 1024])
+2025-05-10 14:21:38,642 - root - INFO - 当前问题进行embedding后的 list shape：(10, 1024)
+2025-05-10 14:26:26,776 - root - INFO - 当前知识数据库含有类别：['招投标法律规范相关', '招投标流程相关', '现有招投标案例']
+2025-05-10 14:26:30,199 - root - INFO - 当前知识类别分类回复：
+ 你是分类助手，请将用户的问题分类为以下类别之一：['招投标法律规范相关', '招投标流程相关', '现有招投标案例']。直接输出分类结果，不要解释。
+    用户问题：软件升级服务可以用单一来源采购方式吗？
+    分类结果：招投标法律规范相关
+
+我需要确认用户的问题是否属于这些类别之一。
+2025-05-10 14:26:30,199 - root - INFO - 当前识别类别：招投标法律规范相关
+2025-05-10 14:26:30,804 - root - INFO - 当前text的token_ids：tensor([[103951, 100402,  47874, 106782, 106215,  89161, 102049,  75768, 101037,
+          11319]])
+2025-05-10 14:26:30,805 - root - INFO - 向量化后的 tensor shape：torch.Size([1, 10, 1024])
+2025-05-10 14:26:30,805 - root - INFO - 当前问题进行embedding后的 list shape：(10, 1024)
+2025-05-10 14:30:01,193 - root - INFO - 类别列表：['laws', 'bid_basic_theory', 'bid_cases']（英文，用于向量库的'collection_name'）
+2025-05-10 14:30:01,193 - root - INFO - 当前检索到的原数据路径与向量存储路径：{'laws_knowledge_path': '../knowledge/raw_knowledge/laws/', 'save_laws_db_path': '../knowledge/vector_knowledge/laws.db'}
+2025-05-10 14:30:01,193 - root - INFO - 当前检索到的原数据类别：laws
+2025-05-10 14:30:01,194 - root - INFO - 读取到的'laws'类别所有docx路径：['../knowledge/raw_knowledge/laws/中华人民共和国招标投标法实施条例.docx', '../knowledge/raw_knowledge/laws/中华人民共和国政府采购法实施条例.docx', '../knowledge/raw_knowledge/laws/中华人民共和国政府采购法.docx', '../knowledge/raw_knowledge/laws/政府采购项目公开招标文件.docx', '../knowledge/raw_knowledge/laws/北京市招标投标条例.docx']
+2025-05-10 14:30:01,194 - root - INFO - 读取到的'laws'类别所有pdf路径：['../knowledge/raw_knowledge/laws/政府采购质疑和投诉办法.pdf', '../knowledge/raw_knowledge/laws/政府采购货物和服务招标投标管理办法.pdf', '../knowledge/raw_knowledge/laws/政府采购非招标采购方式管理办法.pdf', '../knowledge/raw_knowledge/laws/招标投标领域公平竞争审查规则.pdf']
+2025-05-10 14:30:01,748 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: Qwen/Qwen3-0.6B
+2025-05-10 14:30:02,216 - sentence_transformers.SentenceTransformer - WARNING - No sentence-transformers model found with name Qwen/Qwen3-0.6B. Creating a new one with mean pooling.
+2025-05-10 14:30:08,053 - root - INFO - 创建向量数据库：../knowledge/vector_knowledge/laws.db
+2025-05-10 14:30:08,053 - root - INFO - 使用向量模型：Qwen/Qwen3-0.6B
+2025-05-10 14:30:08,053 - root - INFO - 读取的当前文件：../knowledge/raw_knowledge/laws/中华人民共和国招标投标法实施条例.docx
+2025-05-10 14:30:08,079 - root - INFO - 原文档长度：11990
+2025-05-10 14:30:08,079 - root - INFO - 预切分文本长度：512
+2025-05-10 14:30:08,079 - root - INFO - 切分覆盖长度：16
+2025-05-10 14:30:22,596 - root - INFO - 当前向量存储维度：1024
+2025-05-10 14:30:22,597 - root - INFO - 向量库集合名：laws
+2025-05-10 14:30:23,166 - root - INFO - 读取的当前文件：../knowledge/raw_knowledge/laws/中华人民共和国政府采购法实施条例.docx
+2025-05-10 14:30:23,186 - root - INFO - 原文档长度：10962
+2025-05-10 14:30:23,186 - root - INFO - 预切分文本长度：512
+2025-05-10 14:30:23,186 - root - INFO - 切分覆盖长度：16
+2025-05-10 14:30:34,761 - root - INFO - 当前向量存储维度：1024
+2025-05-10 14:30:34,762 - root - INFO - 向量库集合名：laws
+2025-05-10 14:30:35,307 - root - INFO - 读取的当前文件：../knowledge/raw_knowledge/laws/中华人民共和国政府采购法.docx
+2025-05-10 14:30:35,339 - root - INFO - 原文档长度：9571
+2025-05-10 14:30:35,339 - root - INFO - 预切分文本长度：512
+2025-05-10 14:30:35,339 - root - INFO - 切分覆盖长度：16
+2025-05-10 14:30:45,615 - root - INFO - 当前向量存储维度：1024
+2025-05-10 14:30:45,615 - root - INFO - 向量库集合名：laws
+2025-05-10 14:30:46,157 - root - INFO - 读取的当前文件：../knowledge/raw_knowledge/laws/政府采购项目公开招标文件.docx
+2025-05-10 14:30:46,247 - root - INFO - 原文档长度：30287
+2025-05-10 14:30:46,247 - root - INFO - 预切分文本长度：512
+2025-05-10 14:30:46,247 - root - INFO - 切分覆盖长度：16
+2025-05-10 14:31:23,491 - root - INFO - 当前向量存储维度：1024
+2025-05-10 14:31:23,492 - root - INFO - 向量库集合名：laws
+2025-05-10 14:31:24,060 - root - INFO - 读取的当前文件：../knowledge/raw_knowledge/laws/北京市招标投标条例.docx
+2025-05-10 14:31:24,080 - root - INFO - 原文档长度：6048
+2025-05-10 14:31:24,080 - root - INFO - 预切分文本长度：512
+2025-05-10 14:31:24,080 - root - INFO - 切分覆盖长度：16
+2025-05-10 14:31:30,891 - root - INFO - 当前向量存储维度：1024
+2025-05-10 14:31:30,891 - root - INFO - 向量库集合名：laws
+2025-05-10 14:31:31,420 - root - INFO - 读取的当前文件：../knowledge/raw_knowledge/laws/政府采购质疑和投诉办法.pdf
+2025-05-10 14:31:31,812 - root - INFO - 当前pdf成功转为text，预进行切片
+2025-05-10 14:31:31,812 - root - INFO - 原文档长度：5647
+2025-05-10 14:31:31,812 - root - INFO - 预切分文本长度：50
+2025-05-10 14:31:31,812 - root - INFO - 切分覆盖长度：15
+2025-05-10 14:31:31,812 - root - INFO - 切片成功，进行向量存储...
+2025-05-10 14:31:40,607 - root - INFO - 当前向量存储维度：1024
+2025-05-10 14:31:40,608 - root - INFO - 向量库集合名：laws
+2025-05-10 14:31:41,162 - root - INFO - 当前pdf已向量化存储
+2025-05-10 14:31:41,162 - root - INFO - 读取的当前文件：../knowledge/raw_knowledge/laws/政府采购货物和服务招标投标管理办法.pdf
+2025-05-10 14:31:42,246 - root - INFO - 当前pdf成功转为text，预进行切片
+2025-05-10 14:31:42,246 - root - INFO - 原文档长度：12722
+2025-05-10 14:31:42,246 - root - INFO - 预切分文本长度：50
+2025-05-10 14:31:42,247 - root - INFO - 切分覆盖长度：15
+2025-05-10 14:31:42,247 - root - INFO - 切片成功，进行向量存储...
+2025-05-10 14:32:01,194 - root - INFO - 当前向量存储维度：1024
+2025-05-10 14:32:01,195 - root - INFO - 向量库集合名：laws
+2025-05-10 14:32:01,773 - root - INFO - 当前pdf已向量化存储
+2025-05-10 14:32:01,773 - root - INFO - 读取的当前文件：../knowledge/raw_knowledge/laws/政府采购非招标采购方式管理办法.pdf
+2025-05-10 14:32:02,331 - root - INFO - 当前pdf成功转为text，预进行切片
+2025-05-10 14:32:02,331 - root - INFO - 原文档长度：9559
+2025-05-10 14:32:02,331 - root - INFO - 预切分文本长度：50
+2025-05-10 14:32:02,331 - root - INFO - 切分覆盖长度：15
+2025-05-10 14:32:02,332 - root - INFO - 切片成功，进行向量存储...
+2025-05-10 14:32:15,937 - root - INFO - 当前向量存储维度：1024
+2025-05-10 14:32:15,938 - root - INFO - 向量库集合名：laws
+2025-05-10 14:32:16,504 - root - INFO - 当前pdf已向量化存储
+2025-05-10 14:32:16,504 - root - INFO - 读取的当前文件：../knowledge/raw_knowledge/laws/招标投标领域公平竞争审查规则.pdf
+2025-05-10 14:32:16,642 - root - INFO - 当前pdf成功转为text，预进行切片
+2025-05-10 14:32:16,642 - root - INFO - 原文档长度：3264
+2025-05-10 14:32:16,642 - root - INFO - 预切分文本长度：50
+2025-05-10 14:32:16,642 - root - INFO - 切分覆盖长度：15
+2025-05-10 14:32:16,642 - root - INFO - 切片成功，进行向量存储...
+2025-05-10 14:32:20,950 - root - INFO - 当前向量存储维度：1024
+2025-05-10 14:32:20,950 - root - INFO - 向量库集合名：laws
+2025-05-10 14:32:21,489 - root - INFO - 当前pdf已向量化存储
+2025-05-10 14:32:21,489 - root - INFO - 当前检索到的原数据路径与向量存储路径：{'bid_basic_theory_knowledge_path': '../knowledge/raw_knowledge/bid_basic_theory/', 'save_bid_basic_theory_db_path': '../knowledge/vector_knowledge/bid_basic_theory.db'}
+2025-05-10 14:32:21,489 - root - INFO - 当前检索到的原数据类别：bid_basic_theory
+2025-05-10 14:32:21,494 - root - INFO - 读取到的'bid_basic_theory'类别所有docx路径：[]
+2025-05-10 14:32:21,494 - root - INFO - 读取到的'bid_basic_theory'类别所有pdf路径：[]
+2025-05-10 14:32:22,052 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: Qwen/Qwen3-0.6B
+2025-05-10 14:32:22,571 - sentence_transformers.SentenceTransformer - WARNING - No sentence-transformers model found with name Qwen/Qwen3-0.6B. Creating a new one with mean pooling.
+2025-05-10 14:32:30,279 - root - INFO - 创建向量数据库：../knowledge/vector_knowledge/bid_basic_theory.db
+2025-05-10 14:32:30,280 - root - INFO - 使用向量模型：Qwen/Qwen3-0.6B
+2025-05-10 14:32:30,280 - root - INFO - 当前检索到的原数据路径与向量存储路径：{'bid_cases_knowledge_path': '../knowledge/raw_knowledge/bid_cases/', 'save_bid_cases_db_path': '../knowledge/vector_knowledge/bid_cases.db'}
+2025-05-10 14:32:30,280 - root - INFO - 当前检索到的原数据类别：bid_cases
+2025-05-10 14:32:30,281 - root - INFO - 读取到的'bid_cases'类别所有docx路径：[]
+2025-05-10 14:32:30,281 - root - INFO - 读取到的'bid_cases'类别所有pdf路径：[]
+2025-05-10 14:32:33,839 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: Qwen/Qwen3-0.6B
+2025-05-10 14:32:34,154 - sentence_transformers.SentenceTransformer - WARNING - No sentence-transformers model found with name Qwen/Qwen3-0.6B. Creating a new one with mean pooling.
+2025-05-10 14:32:37,140 - root - INFO - 创建向量数据库：../knowledge/vector_knowledge/bid_cases.db
+2025-05-10 14:32:37,141 - root - INFO - 使用向量模型：Qwen/Qwen3-0.6B
+2025-05-10 14:32:57,805 - root - INFO - 当前知识数据库含有类别：['招投标法律规范相关', '招投标流程相关', '现有招投标案例']
+2025-05-10 14:32:59,270 - root - INFO - 当前知识类别分类回复：
+ 你是分类助手，请将用户的问题分类为以下类别之一：['招投标法律规范相关', '招投标流程相关', '现有招投标案例']。直接输出分类结果，不要解释。
+    用户问题：软件升级服务可以用单一来源采购方式吗？
+    分类结果：招投标法律规范相关
+答案：是的，软件升级服务可以采用单一
+2025-05-10 14:32:59,270 - root - INFO - 当前识别类别：招投标法律规范相关
+2025-05-10 14:32:59,854 - root - INFO - 当前text的token_ids：tensor([[103951, 100402,  47874, 106782, 106215,  89161, 102049,  75768, 101037,
+          11319]])
+2025-05-10 14:32:59,855 - root - INFO - 向量化后的 tensor shape：torch.Size([1, 10, 1024])
+2025-05-10 14:32:59,855 - root - INFO - 当前问题进行embedding后的 list shape：(10, 1024)
+2025-05-10 14:37:57,054 - root - INFO - 类别列表：['laws', 'bid_basic_theory', 'bid_cases']（英文，用于向量库的'collection_name'）
+2025-05-10 14:37:57,054 - root - INFO - 当前检索到的原数据路径与向量存储路径：{'laws_knowledge_path': '../knowledge/raw_knowledge/laws/', 'save_laws_db_path': '../knowledge/vector_knowledge/laws.db'}
+2025-05-10 14:37:57,054 - root - INFO - 当前检索到的原数据类别：laws
+2025-05-10 14:37:57,054 - root - INFO - 读取到的'laws'类别所有docx路径：['../knowledge/raw_knowledge/laws/中华人民共和国招标投标法实施条例.docx', '../knowledge/raw_knowledge/laws/中华人民共和国政府采购法实施条例.docx', '../knowledge/raw_knowledge/laws/中华人民共和国政府采购法.docx', '../knowledge/raw_knowledge/laws/政府采购项目公开招标文件.docx', '../knowledge/raw_knowledge/laws/北京市招标投标条例.docx']
+2025-05-10 14:37:57,055 - root - INFO - 读取到的'laws'类别所有pdf路径：['../knowledge/raw_knowledge/laws/政府采购质疑和投诉办法.pdf', '../knowledge/raw_knowledge/laws/政府采购货物和服务招标投标管理办法.pdf', '../knowledge/raw_knowledge/laws/政府采购非招标采购方式管理办法.pdf', '../knowledge/raw_knowledge/laws/招标投标领域公平竞争审查规则.pdf']
+2025-05-10 14:37:57,644 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: Qwen/Qwen3-0.6B
+2025-05-10 14:37:58,302 - sentence_transformers.SentenceTransformer - WARNING - No sentence-transformers model found with name Qwen/Qwen3-0.6B. Creating a new one with mean pooling.
+2025-05-10 14:38:02,243 - root - INFO - 创建向量数据库：../knowledge/vector_knowledge/laws.db
+2025-05-10 14:38:02,244 - root - INFO - 使用向量模型：Qwen/Qwen3-0.6B
+2025-05-10 14:38:02,244 - root - INFO - 读取的当前文件：../knowledge/raw_knowledge/laws/中华人民共和国招标投标法实施条例.docx
+2025-05-10 14:38:02,275 - root - INFO - 原文档长度：11990
+2025-05-10 14:38:02,275 - root - INFO - 预切分文本长度：512
+2025-05-10 14:38:02,275 - root - INFO - 切分覆盖长度：16
+2025-05-10 14:38:02,275 - root - INFO - 当前文档切分后的文本列表大小：(24, 512)
+2025-05-10 14:38:16,410 - root - INFO - 切分后的文本列表向量化大小：(24, 1024)
+2025-05-10 14:38:16,411 - root - INFO - 当前向量存储维度：1024
+2025-05-10 14:38:16,411 - root - INFO - 向量库集合名：laws
+2025-05-10 14:38:16,990 - root - INFO - 读取的当前文件：../knowledge/raw_knowledge/laws/中华人民共和国政府采购法实施条例.docx
+2025-05-10 14:38:17,009 - root - INFO - 原文档长度：10962
+2025-05-10 14:38:17,009 - root - INFO - 预切分文本长度：512
+2025-05-10 14:38:17,009 - root - INFO - 切分覆盖长度：16
+2025-05-10 14:38:17,009 - root - INFO - 当前文档切分后的文本列表大小：(22, 512)
+2025-05-10 14:38:28,589 - root - INFO - 切分后的文本列表向量化大小：(22, 1024)
+2025-05-10 14:38:28,589 - root - INFO - 当前向量存储维度：1024
+2025-05-10 14:38:28,589 - root - INFO - 向量库集合名：laws
+2025-05-10 14:38:29,133 - root - INFO - 读取的当前文件：../knowledge/raw_knowledge/laws/中华人民共和国政府采购法.docx
+2025-05-10 14:38:29,162 - root - INFO - 原文档长度：9571
+2025-05-10 14:38:29,162 - root - INFO - 预切分文本长度：512
+2025-05-10 14:38:29,162 - root - INFO - 切分覆盖长度：16
+2025-05-10 14:38:29,162 - root - INFO - 当前文档切分后的文本列表大小：(19, 512)
+2025-05-10 14:38:39,574 - root - INFO - 切分后的文本列表向量化大小：(19, 1024)
+2025-05-10 14:38:39,574 - root - INFO - 当前向量存储维度：1024
+2025-05-10 14:38:39,574 - root - INFO - 向量库集合名：laws
+2025-05-10 14:38:40,118 - root - INFO - 读取的当前文件：../knowledge/raw_knowledge/laws/政府采购项目公开招标文件.docx
+2025-05-10 14:38:40,209 - root - INFO - 原文档长度：30287
+2025-05-10 14:38:40,209 - root - INFO - 预切分文本长度：512
+2025-05-10 14:38:40,209 - root - INFO - 切分覆盖长度：16
+2025-05-10 14:38:40,209 - root - INFO - 当前文档切分后的文本列表大小：(60, 512)
+2025-05-10 14:39:20,445 - root - INFO - 切分后的文本列表向量化大小：(60, 1024)
+2025-05-10 14:39:20,448 - root - INFO - 当前向量存储维度：1024
+2025-05-10 14:39:20,448 - root - INFO - 向量库集合名：laws
+2025-05-10 14:39:21,022 - root - INFO - 读取的当前文件：../knowledge/raw_knowledge/laws/北京市招标投标条例.docx
+2025-05-10 14:39:21,046 - root - INFO - 原文档长度：6048
+2025-05-10 14:39:21,046 - root - INFO - 预切分文本长度：512
+2025-05-10 14:39:21,046 - root - INFO - 切分覆盖长度：16
+2025-05-10 14:39:21,046 - root - INFO - 当前文档切分后的文本列表大小：(12, 512)
+2025-05-10 14:39:27,559 - root - INFO - 切分后的文本列表向量化大小：(12, 1024)
+2025-05-10 14:39:27,560 - root - INFO - 当前向量存储维度：1024
+2025-05-10 14:39:27,560 - root - INFO - 向量库集合名：laws
+2025-05-10 14:39:28,092 - root - INFO - 读取的当前文件：../knowledge/raw_knowledge/laws/政府采购质疑和投诉办法.pdf
+2025-05-10 14:39:28,489 - root - INFO - 当前pdf成功转为text，预进行切片
+2025-05-10 14:39:28,489 - root - INFO - 原文档长度：5647
+2025-05-10 14:39:28,490 - root - INFO - 预切分文本长度：50
+2025-05-10 14:39:28,490 - root - INFO - 切分覆盖长度：15
+2025-05-10 14:39:28,490 - root - INFO - 切片成功，进行向量存储...
+2025-05-10 14:39:37,031 - root - INFO - 当前向量存储维度：1024
+2025-05-10 14:39:37,031 - root - INFO - 向量库集合名：laws
+2025-05-10 14:39:37,584 - root - INFO - 当前pdf已向量化存储
+2025-05-10 14:39:37,584 - root - INFO - 读取的当前文件：../knowledge/raw_knowledge/laws/政府采购货物和服务招标投标管理办法.pdf
+2025-05-10 14:39:38,631 - root - INFO - 当前pdf成功转为text，预进行切片
+2025-05-10 14:39:38,631 - root - INFO - 原文档长度：12722
+2025-05-10 14:39:38,631 - root - INFO - 预切分文本长度：50
+2025-05-10 14:39:38,631 - root - INFO - 切分覆盖长度：15
+2025-05-10 14:39:38,631 - root - INFO - 切片成功，进行向量存储...
+2025-05-10 14:39:57,460 - root - INFO - 当前向量存储维度：1024
+2025-05-10 14:39:57,460 - root - INFO - 向量库集合名：laws
+2025-05-10 14:39:58,036 - root - INFO - 当前pdf已向量化存储
+2025-05-10 14:39:58,036 - root - INFO - 读取的当前文件：../knowledge/raw_knowledge/laws/政府采购非招标采购方式管理办法.pdf
+2025-05-10 14:39:58,607 - root - INFO - 当前pdf成功转为text，预进行切片
+2025-05-10 14:39:58,607 - root - INFO - 原文档长度：9559
+2025-05-10 14:39:58,607 - root - INFO - 预切分文本长度：50
+2025-05-10 14:39:58,607 - root - INFO - 切分覆盖长度：15
+2025-05-10 14:39:58,607 - root - INFO - 切片成功，进行向量存储...
+2025-05-10 14:40:12,586 - root - INFO - 当前向量存储维度：1024
+2025-05-10 14:40:12,586 - root - INFO - 向量库集合名：laws
+2025-05-10 14:40:13,147 - root - INFO - 当前pdf已向量化存储
+2025-05-10 14:40:13,147 - root - INFO - 读取的当前文件：../knowledge/raw_knowledge/laws/招标投标领域公平竞争审查规则.pdf
+2025-05-10 14:40:13,294 - root - INFO - 当前pdf成功转为text，预进行切片
+2025-05-10 14:40:13,294 - root - INFO - 原文档长度：3264
+2025-05-10 14:40:13,294 - root - INFO - 预切分文本长度：50
+2025-05-10 14:40:13,294 - root - INFO - 切分覆盖长度：15
+2025-05-10 14:40:13,294 - root - INFO - 切片成功，进行向量存储...
+2025-05-10 14:40:17,963 - root - INFO - 当前向量存储维度：1024
+2025-05-10 14:40:17,963 - root - INFO - 向量库集合名：laws
+2025-05-10 14:40:18,485 - root - INFO - 当前pdf已向量化存储
+2025-05-10 14:40:18,486 - root - INFO - 当前检索到的原数据路径与向量存储路径：{'bid_basic_theory_knowledge_path': '../knowledge/raw_knowledge/bid_basic_theory/', 'save_bid_basic_theory_db_path': '../knowledge/vector_knowledge/bid_basic_theory.db'}
+2025-05-10 14:40:18,486 - root - INFO - 当前检索到的原数据类别：bid_basic_theory
+2025-05-10 14:40:18,486 - root - INFO - 读取到的'bid_basic_theory'类别所有docx路径：[]
+2025-05-10 14:40:18,486 - root - INFO - 读取到的'bid_basic_theory'类别所有pdf路径：[]
+2025-05-10 14:40:19,032 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: Qwen/Qwen3-0.6B
+2025-05-10 14:40:19,563 - sentence_transformers.SentenceTransformer - WARNING - No sentence-transformers model found with name Qwen/Qwen3-0.6B. Creating a new one with mean pooling.
+2025-05-10 14:40:27,748 - root - INFO - 创建向量数据库：../knowledge/vector_knowledge/bid_basic_theory.db
+2025-05-10 14:40:27,750 - root - INFO - 使用向量模型：Qwen/Qwen3-0.6B
+2025-05-10 14:40:27,750 - root - INFO - 当前检索到的原数据路径与向量存储路径：{'bid_cases_knowledge_path': '../knowledge/raw_knowledge/bid_cases/', 'save_bid_cases_db_path': '../knowledge/vector_knowledge/bid_cases.db'}
+2025-05-10 14:40:27,750 - root - INFO - 当前检索到的原数据类别：bid_cases
+2025-05-10 14:40:27,750 - root - INFO - 读取到的'bid_cases'类别所有docx路径：[]
+2025-05-10 14:40:27,750 - root - INFO - 读取到的'bid_cases'类别所有pdf路径：[]
+2025-05-10 14:40:28,292 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: Qwen/Qwen3-0.6B
+2025-05-10 14:40:28,761 - sentence_transformers.SentenceTransformer - WARNING - No sentence-transformers model found with name Qwen/Qwen3-0.6B. Creating a new one with mean pooling.
+2025-05-10 14:40:32,349 - root - INFO - 创建向量数据库：../knowledge/vector_knowledge/bid_cases.db
+2025-05-10 14:40:32,350 - root - INFO - 使用向量模型：Qwen/Qwen3-0.6B
+2025-05-10 14:44:12,012 - root - INFO - 类别列表：['laws', 'bid_basic_theory', 'bid_cases']（英文，用于向量库的'collection_name'）
+2025-05-10 14:44:12,012 - root - INFO - 当前检索到的原数据路径与向量存储路径：{'laws_knowledge_path': '../knowledge/raw_knowledge/laws/', 'save_laws_db_path': '../knowledge/vector_knowledge/laws.db'}
+2025-05-10 14:44:12,013 - root - INFO - 当前检索到的原数据类别：laws
+2025-05-10 14:44:12,013 - root - INFO - 读取到的'laws'类别所有docx路径：['../knowledge/raw_knowledge/laws/中华人民共和国招标投标法实施条例.docx', '../knowledge/raw_knowledge/laws/中华人民共和国政府采购法实施条例.docx', '../knowledge/raw_knowledge/laws/中华人民共和国政府采购法.docx', '../knowledge/raw_knowledge/laws/政府采购项目公开招标文件.docx', '../knowledge/raw_knowledge/laws/北京市招标投标条例.docx']
+2025-05-10 14:44:12,013 - root - INFO - 读取到的'laws'类别所有pdf路径：['../knowledge/raw_knowledge/laws/政府采购质疑和投诉办法.pdf', '../knowledge/raw_knowledge/laws/政府采购货物和服务招标投标管理办法.pdf', '../knowledge/raw_knowledge/laws/政府采购非招标采购方式管理办法.pdf', '../knowledge/raw_knowledge/laws/招标投标领域公平竞争审查规则.pdf']
+2025-05-10 14:44:12,583 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: Qwen/Qwen3-0.6B
+2025-05-10 14:44:13,422 - sentence_transformers.SentenceTransformer - WARNING - No sentence-transformers model found with name Qwen/Qwen3-0.6B. Creating a new one with mean pooling.
+2025-05-10 14:44:16,712 - root - INFO - 创建向量数据库：../knowledge/vector_knowledge/laws.db
+2025-05-10 14:44:16,713 - root - INFO - 使用向量模型：Qwen/Qwen3-0.6B
+2025-05-10 14:44:16,713 - root - INFO - 读取的当前文件：../knowledge/raw_knowledge/laws/中华人民共和国招标投标法实施条例.docx
+2025-05-10 14:44:16,738 - root - INFO - 原文档长度：11990
+2025-05-10 14:44:16,738 - root - INFO - 预切分文本长度：512
+2025-05-10 14:44:16,738 - root - INFO - 切分覆盖长度：16
+2025-05-10 14:44:16,738 - root - INFO - 当前文档切分后的文本列表大小：(24, 512)
+2025-05-10 14:44:31,077 - root - INFO - 切分后的文本列表向量化大小：(24, 1024)
+2025-05-10 14:44:31,077 - root - INFO - 当前向量存储维度：1024
+2025-05-10 14:44:31,077 - root - INFO - 向量库集合名：laws
+2025-05-10 14:44:31,636 - root - INFO - 读取的当前文件：../knowledge/raw_knowledge/laws/中华人民共和国政府采购法实施条例.docx
+2025-05-10 14:44:31,654 - root - INFO - 原文档长度：10962
+2025-05-10 14:44:31,654 - root - INFO - 预切分文本长度：512
+2025-05-10 14:44:31,654 - root - INFO - 切分覆盖长度：16
+2025-05-10 14:44:31,654 - root - INFO - 当前文档切分后的文本列表大小：(22, 512)
+2025-05-10 14:44:43,781 - root - INFO - 切分后的文本列表向量化大小：(22, 1024)
+2025-05-10 14:44:43,781 - root - INFO - 当前向量存储维度：1024
+2025-05-10 14:44:43,781 - root - INFO - 向量库集合名：laws
+2025-05-10 14:44:44,327 - root - INFO - 读取的当前文件：../knowledge/raw_knowledge/laws/中华人民共和国政府采购法.docx
+2025-05-10 14:44:44,358 - root - INFO - 原文档长度：9571
+2025-05-10 14:44:44,358 - root - INFO - 预切分文本长度：512
+2025-05-10 14:44:44,358 - root - INFO - 切分覆盖长度：16
+2025-05-10 14:44:44,359 - root - INFO - 当前文档切分后的文本列表大小：(19, 512)
+2025-05-10 14:44:54,484 - root - INFO - 切分后的文本列表向量化大小：(19, 1024)
+2025-05-10 14:44:54,485 - root - INFO - 当前向量存储维度：1024
+2025-05-10 14:44:54,485 - root - INFO - 向量库集合名：laws
+2025-05-10 14:44:55,026 - root - INFO - 读取的当前文件：../knowledge/raw_knowledge/laws/政府采购项目公开招标文件.docx
+2025-05-10 14:44:55,117 - root - INFO - 原文档长度：30287
+2025-05-10 14:44:55,117 - root - INFO - 预切分文本长度：512
+2025-05-10 14:44:55,117 - root - INFO - 切分覆盖长度：16
+2025-05-10 14:44:55,117 - root - INFO - 当前文档切分后的文本列表大小：(60, 512)
+2025-05-10 14:45:30,579 - root - INFO - 切分后的文本列表向量化大小：(60, 1024)
+2025-05-10 14:45:30,580 - root - INFO - 当前向量存储维度：1024
+2025-05-10 14:45:30,580 - root - INFO - 向量库集合名：laws
+2025-05-10 14:45:31,138 - root - INFO - 读取的当前文件：../knowledge/raw_knowledge/laws/北京市招标投标条例.docx
+2025-05-10 14:45:31,154 - root - INFO - 原文档长度：6048
+2025-05-10 14:45:31,154 - root - INFO - 预切分文本长度：512
+2025-05-10 14:45:31,154 - root - INFO - 切分覆盖长度：16
+2025-05-10 14:45:31,154 - root - INFO - 当前文档切分后的文本列表大小：(12, 512)
+2025-05-10 14:45:37,705 - root - INFO - 切分后的文本列表向量化大小：(12, 1024)
+2025-05-10 14:45:37,705 - root - INFO - 当前向量存储维度：1024
+2025-05-10 14:45:37,705 - root - INFO - 向量库集合名：laws
+2025-05-10 14:45:38,233 - root - INFO - 读取的当前文件：../knowledge/raw_knowledge/laws/政府采购质疑和投诉办法.pdf
+2025-05-10 14:45:38,636 - root - INFO - 当前pdf成功转为text，预进行切片
+2025-05-10 14:45:38,636 - root - INFO - 原文档长度：5647
+2025-05-10 14:45:38,636 - root - INFO - 预切分文本长度：512
+2025-05-10 14:45:38,636 - root - INFO - 切分覆盖长度：16
+2025-05-10 14:45:38,636 - root - INFO - 切片成功，进行向量存储...
+2025-05-10 14:45:45,280 - root - INFO - 当前向量存储维度：1024
+2025-05-10 14:45:45,280 - root - INFO - 向量库集合名：laws
+2025-05-10 14:45:45,816 - root - INFO - 当前pdf已向量化存储
+2025-05-10 14:45:45,816 - root - INFO - 读取的当前文件：../knowledge/raw_knowledge/laws/政府采购货物和服务招标投标管理办法.pdf
+2025-05-10 14:45:46,835 - root - INFO - 当前pdf成功转为text，预进行切片
+2025-05-10 14:45:46,835 - root - INFO - 原文档长度：12722
+2025-05-10 14:45:46,835 - root - INFO - 预切分文本长度：512
+2025-05-10 14:45:46,835 - root - INFO - 切分覆盖长度：16
+2025-05-10 14:45:46,835 - root - INFO - 切片成功，进行向量存储...
+2025-05-10 14:46:01,187 - root - INFO - 当前向量存储维度：1024
+2025-05-10 14:46:01,187 - root - INFO - 向量库集合名：laws
+2025-05-10 14:46:01,735 - root - INFO - 当前pdf已向量化存储
+2025-05-10 14:46:01,735 - root - INFO - 读取的当前文件：../knowledge/raw_knowledge/laws/政府采购非招标采购方式管理办法.pdf
+2025-05-10 14:46:02,348 - root - INFO - 当前pdf成功转为text，预进行切片
+2025-05-10 14:46:02,348 - root - INFO - 原文档长度：9559
+2025-05-10 14:46:02,349 - root - INFO - 预切分文本长度：512
+2025-05-10 14:46:02,349 - root - INFO - 切分覆盖长度：16
+2025-05-10 14:46:02,349 - root - INFO - 切片成功，进行向量存储...
+2025-05-10 14:46:12,895 - root - INFO - 当前向量存储维度：1024
+2025-05-10 14:46:12,897 - root - INFO - 向量库集合名：laws
+2025-05-10 14:46:13,439 - root - INFO - 当前pdf已向量化存储
+2025-05-10 14:46:13,439 - root - INFO - 读取的当前文件：../knowledge/raw_knowledge/laws/招标投标领域公平竞争审查规则.pdf
+2025-05-10 14:46:13,591 - root - INFO - 当前pdf成功转为text，预进行切片
+2025-05-10 14:46:13,591 - root - INFO - 原文档长度：3264
+2025-05-10 14:46:13,591 - root - INFO - 预切分文本长度：512
+2025-05-10 14:46:13,591 - root - INFO - 切分覆盖长度：16
+2025-05-10 14:46:13,591 - root - INFO - 切片成功，进行向量存储...
+2025-05-10 14:46:17,180 - root - INFO - 当前向量存储维度：1024
+2025-05-10 14:46:17,180 - root - INFO - 向量库集合名：laws
+2025-05-10 14:46:17,716 - root - INFO - 当前pdf已向量化存储
+2025-05-10 14:46:17,716 - root - INFO - 当前检索到的原数据路径与向量存储路径：{'bid_basic_theory_knowledge_path': '../knowledge/raw_knowledge/bid_basic_theory/', 'save_bid_basic_theory_db_path': '../knowledge/vector_knowledge/bid_basic_theory.db'}
+2025-05-10 14:46:17,716 - root - INFO - 当前检索到的原数据类别：bid_basic_theory
+2025-05-10 14:46:17,718 - root - INFO - 读取到的'bid_basic_theory'类别所有docx路径：[]
+2025-05-10 14:46:17,719 - root - INFO - 读取到的'bid_basic_theory'类别所有pdf路径：[]
+2025-05-10 14:46:18,285 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: Qwen/Qwen3-0.6B
+2025-05-10 14:46:19,068 - sentence_transformers.SentenceTransformer - WARNING - No sentence-transformers model found with name Qwen/Qwen3-0.6B. Creating a new one with mean pooling.
+2025-05-10 14:46:24,256 - root - INFO - 创建向量数据库：../knowledge/vector_knowledge/bid_basic_theory.db
+2025-05-10 14:46:24,260 - root - INFO - 使用向量模型：Qwen/Qwen3-0.6B
+2025-05-10 14:46:24,260 - root - INFO - 当前检索到的原数据路径与向量存储路径：{'bid_cases_knowledge_path': '../knowledge/raw_knowledge/bid_cases/', 'save_bid_cases_db_path': '../knowledge/vector_knowledge/bid_cases.db'}
+2025-05-10 14:46:24,260 - root - INFO - 当前检索到的原数据类别：bid_cases
+2025-05-10 14:46:24,260 - root - INFO - 读取到的'bid_cases'类别所有docx路径：[]
+2025-05-10 14:46:24,260 - root - INFO - 读取到的'bid_cases'类别所有pdf路径：[]
+2025-05-10 14:46:24,845 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: Qwen/Qwen3-0.6B
+2025-05-10 14:46:25,210 - sentence_transformers.SentenceTransformer - WARNING - No sentence-transformers model found with name Qwen/Qwen3-0.6B. Creating a new one with mean pooling.
+2025-05-10 14:46:29,114 - root - INFO - 创建向量数据库：../knowledge/vector_knowledge/bid_cases.db
+2025-05-10 14:46:29,115 - root - INFO - 使用向量模型：Qwen/Qwen3-0.6B
+2025-05-10 14:56:28,207 - root - INFO - 当前知识数据库含有类别：['招投标法律规范相关', '招投标流程相关', '现有招投标案例']
+2025-05-10 14:56:30,774 - root - INFO - 当前知识类别分类回复：
+ 你是分类助手，请将用户的问题分类为以下类别之一：['招投标法律规范相关', '招投标流程相关', '现有招投标案例']。直接输出分类结果，不要解释。
+    用户问题：软件升级服务可以用单一来源采购方式吗？
+    分类结果：招投标法律规范相关
+    用户问题：如何进行招投标流程？请详细
+2025-05-10 14:56:30,774 - root - INFO - 当前识别类别：招投标法律规范相关
+2025-05-10 14:56:31,369 - root - INFO - 当前text的token_ids：tensor([[103951, 100402,  47874, 106782, 106215,  89161, 102049,  75768, 101037,
+          11319]])
+2025-05-10 14:56:31,370 - root - INFO - 向量化后的 tensor shape：torch.Size([1, 10, 1024])
+2025-05-10 14:56:31,370 - root - INFO - 当前问题进行embedding后的 list shape：(10, 1024)
+2025-05-10 14:59:22,698 - root - INFO - 当前知识数据库含有类别：['招投标法律规范相关', '招投标流程相关', '现有招投标案例']
+2025-05-10 14:59:24,300 - root - INFO - 当前知识类别分类回复：
+ 你是分类助手，请将用户的问题分类为以下类别之一：['招投标法律规范相关', '招投标流程相关', '现有招投标案例']。直接输出分类结果，不要解释。
+    用户问题：软件升级服务可以用单一来源采购方式吗？
+    分类结果：招投标流程相关
+    分类结果：招投标法律规范相关
+    分
+2025-05-10 14:59:24,301 - root - INFO - 当前识别类别：招投标流程相关
+2025-05-10 14:59:24,873 - root - INFO - 当前text的token_ids：tensor([[103951, 100402,  47874, 106782, 106215,  89161, 102049,  75768, 101037,
+          11319]])
+2025-05-10 14:59:24,873 - root - INFO - 向量化后的 tensor shape：torch.Size([1, 10, 1024])
+2025-05-10 14:59:24,874 - root - INFO - 当前问题进行embedding后的 list shape：(10, 1024)
+2025-05-10 15:00:22,194 - root - INFO - 当前知识数据库含有类别：['招投标法律规范相关', '招投标流程相关', '现有招投标案例']
+2025-05-10 15:00:23,550 - root - INFO - 当前知识类别分类回复：
+ 你是分类助手，请将用户的问题分类为以下类别之一：['招投标法律规范相关', '招投标流程相关', '现有招投标案例']。直接输出分类结果，不要解释。
+    用户问题：软件升级服务可以用单一来源采购方式吗？
+    分类结果：招投标法律规范相关
+
+---
+
+用户问题：软件升级服务可以用单一来源采购
+2025-05-10 15:00:23,550 - root - INFO - 当前识别类别：招投标法律规范相关
+2025-05-10 15:00:24,125 - root - INFO - 当前text的token_ids：tensor([[103951, 100402,  47874, 106782, 106215,  89161, 102049,  75768, 101037,
+          11319]])
+2025-05-10 15:00:24,125 - root - INFO - 向量化后的 tensor shape：torch.Size([1, 10, 1024])
+2025-05-10 15:00:24,126 - root - INFO - 当前问题进行embedding后的 list shape：(10, 1024)
+2025-05-10 15:14:01,097 - root - INFO - 当前知识数据库含有类别：['招投标法律规范相关', '招投标流程相关', '现有招投标案例']
+2025-05-10 15:14:04,467 - root - INFO - 当前知识类别分类回复：
+ 你是分类助手，请将用户的问题分类为以下类别之一：['招投标法律规范相关', '招投标流程相关', '现有招投标案例']。直接输出分类结果，不要解释。
+    用户问题：软件升级服务可以用单一来源采购方式吗？
+    分类结果：招投标法律规范相关
+    （因为用户的问题涉及招标采购相关法律规范
+2025-05-10 15:14:04,467 - root - INFO - 当前识别类别：招投标法律规范相关
+2025-05-10 15:14:05,052 - root - INFO - 当前text的token_ids：tensor([[103951, 100402,  47874, 106782, 106215,  89161, 102049,  75768, 101037,
+          11319]])
+2025-05-10 15:14:05,053 - root - INFO - 向量化后的 tensor shape：torch.Size([1, 10, 1024])
+2025-05-10 15:14:05,053 - root - INFO - 当前问题进行embedding后的 list shape：(10, 1024)
+2025-05-10 15:17:43,396 - root - INFO - 当前知识数据库含有类别：['招投标法律规范相关', '招投标流程相关', '现有招投标案例']
+2025-05-10 15:17:46,591 - root - INFO - 当前知识类别分类回复：
+ 你是分类助手，请将用户的问题分类为以下类别之一：['招投标法律规范相关', '招投标流程相关', '现有招投标案例']。直接输出分类结果，不要解释。
+    用户问题：软件升级服务可以用单一来源采购方式吗？
+    分类结果：招投标法律规范相关
+    用户问题：如何进行招投标的流程设计？
+
+2025-05-10 15:17:46,591 - root - INFO - 当前识别类别：招投标法律规范相关
+2025-05-10 15:17:47,188 - root - INFO - 当前text的token_ids：tensor([[103951, 100402,  47874, 106782, 106215,  89161, 102049,  75768, 101037,
+          11319]])
+2025-05-10 15:17:47,188 - root - INFO - 向量化后的 tensor shape：torch.Size([1, 10, 1024])
+2025-05-10 15:17:47,188 - root - INFO - 当前问题进行embedding后的 list shape：(10, 1024)
+2025-05-10 15:20:49,463 - root - INFO - 当前知识数据库含有类别：['招投标法律规范相关', '招投标流程相关', '现有招投标案例']
+2025-05-10 15:20:52,370 - root - INFO - 当前知识类别分类回复：
+ 你是分类助手，请将用户的问题分类为以下类别之一：['招投标法律规范相关', '招投标流程相关', '现有招投标案例']。直接输出分类结果，不要解释。
+    用户问题：软件升级服务可以用单一来源采购方式吗？
+    分类结果：招投标法律规范相关
+答案：是的，软件升级服务可以采用单一
+2025-05-10 15:20:52,371 - root - INFO - 当前识别类别：招投标法律规范相关
+2025-05-10 15:20:52,949 - root - INFO - 当前text的token_ids：tensor([[103951, 100402,  47874, 106782, 106215,  89161, 102049,  75768, 101037,
+          11319]])
+2025-05-10 15:20:52,949 - root - INFO - 向量化后的 tensor shape：torch.Size([1, 10, 1024])
+2025-05-10 15:20:52,949 - root - INFO - 当前问题进行embedding后的 list shape：(10, 1024)
+2025-05-10 15:21:32,469 - root - INFO - 当前知识数据库含有类别：['招投标法律规范相关', '招投标流程相关', '现有招投标案例']
+2025-05-10 15:21:34,694 - root - INFO - 当前知识类别分类回复：
+ 你是分类助手，请将用户的问题分类为以下类别之一：['招投标法律规范相关', '招投标流程相关', '现有招投标案例']。直接输出分类结果，不要解释。
+    用户问题：软件升级服务可以用单一来源采购方式吗？
+    分类结果：招投标法律规范相关
+    现有招投标案例：无
+
+根据
+2025-05-10 15:21:34,694 - root - INFO - 当前识别类别：招投标法律规范相关
+2025-05-10 15:21:35,256 - root - INFO - 当前text的token_ids：tensor([[103951, 100402,  47874, 106782, 106215,  89161, 102049,  75768, 101037,
+          11319]])
+2025-05-10 15:21:35,256 - root - INFO - 向量化后的 tensor shape：torch.Size([1, 10, 1024])
+2025-05-10 15:21:35,257 - root - INFO - 当前问题进行embedding后的 list shape：(10, 1024)
+2025-05-10 15:22:01,853 - root - INFO - 当前知识数据库含有类别：['招投标法律规范相关', '招投标流程相关', '现有招投标案例']
+2025-05-10 15:22:03,574 - root - INFO - 当前知识类别分类回复：
+ 你是分类助手，请将用户的问题分类为以下类别之一：['招投标法律规范相关', '招投标流程相关', '现有招投标案例']。直接输出分类结果，不要解释。
+    用户问题：软件升级服务可以用单一来源采购方式吗？
+    分类结果：招投标法律规范相关
+    现有招投标案例：空
+   
+2025-05-10 15:22:03,574 - root - INFO - 当前识别类别：招投标法律规范相关
+2025-05-10 15:22:04,153 - root - INFO - 当前text的token_ids：tensor([[103951, 100402,  47874, 106782, 106215,  89161, 102049,  75768, 101037,
+          11319]])
+2025-05-10 15:22:04,153 - root - INFO - 向量化后的 tensor shape：torch.Size([1, 10, 1024])
+2025-05-10 15:22:04,153 - root - INFO - 当前问题进行embedding后的 list shape：(10, 1024)
+2025-05-10 15:22:04,195 - root - INFO - 当前知识数据库含有类别：dict_keys(['招投标法律规范相关', '招投标流程相关', '现有招投标案例'])
+2025-05-10 15:24:14,975 - root - INFO - 当前知识数据库含有类别：['招投标法律规范相关', '招投标流程相关', '现有招投标案例']
+2025-05-10 15:24:16,746 - root - INFO - 当前知识类别分类回复：
+ 你是分类助手，请将用户的问题分类为以下类别之一：['招投标法律规范相关', '招投标流程相关', '现有招投标案例']。直接输出分类结果，不要解释。
+    用户问题：软件升级服务可以用单一来源采购方式吗？
+    分类结果：招投标法律规范相关
+
+根据提供的分类标准，该问题应该被归类
+2025-05-10 15:24:16,746 - root - INFO - 当前识别类别：招投标法律规范相关
+2025-05-10 15:24:17,320 - root - INFO - 当前text的token_ids：tensor([[103951, 100402,  47874, 106782, 106215,  89161, 102049,  75768, 101037,
+          11319]])
+2025-05-10 15:24:17,321 - root - INFO - 向量化后的 tensor shape：torch.Size([1, 10, 1024])
+2025-05-10 15:24:17,321 - root - INFO - 当前问题进行embedding后的 list shape：(10, 1024)
+2025-05-10 15:24:17,383 - root - INFO - 当前知识数据库含有类别：dict_keys(['招投标法律规范相关', '招投标流程相关', '现有招投标案例'])
+2025-05-10 15:25:55,777 - root - INFO - 当前知识数据库含有类别：['招投标法律规范相关', '招投标流程相关', '现有招投标案例']
+2025-05-10 15:25:57,464 - root - INFO - 当前知识类别分类回复：
+ 你是分类助手，请将用户的问题分类为以下类别之一：['招投标法律规范相关', '招投标流程相关', '现有招投标案例']。直接输出分类结果，不要解释。
+    用户问题：软件升级服务可以用单一来源采购方式吗？
+    分类结果：招投标法律规范相关
+
+回答：
+    单一来源采购方式的使用
+2025-05-10 15:25:57,465 - root - INFO - 当前识别类别：招投标法律规范相关
+2025-05-10 15:25:58,055 - root - INFO - 当前text的token_ids：tensor([[103951, 100402,  47874, 106782, 106215,  89161, 102049,  75768, 101037,
+          11319]])
+2025-05-10 15:25:58,055 - root - INFO - 向量化后的 tensor shape：torch.Size([1, 10, 1024])
+2025-05-10 15:25:58,055 - root - INFO - 当前问题进行embedding后的 list shape：(10, 1024)
+2025-05-10 15:25:58,105 - root - INFO - 当前知识数据库含有类别：dict_keys(['招投标法律规范相关', '招投标流程相关', '现有招投标案例'])

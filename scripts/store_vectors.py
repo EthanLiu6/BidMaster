@@ -45,8 +45,10 @@ def main():
             docx_chunk_texts = text_utils.chunk_texts(origin_texts=docx_texts,
                                                       per_text_length=per_text_length,
                                                       cover_length=cover_length)
+            logging.info(f'当前文档切分后的文本列表大小：{(len(docx_chunk_texts), len(docx_chunk_texts[0]))}')
 
             docx_embeddings, embeddings_dim = text_utils.text2vector(docx_chunk_texts)
+            logging.info(f'切分后的文本列表向量化大小：{docx_embeddings.shape}')
 
             text_utils.insert_vector(chunk_texts_list=docx_chunk_texts,
                                      texts_embeddings=docx_embeddings,
@@ -63,8 +65,8 @@ def main():
             logging.info(f"当前pdf成功转为text，预进行切片")
 
             pdf_chunk_texts = text_utils.chunk_texts(origin_texts=pdf_texts,
-                                                     per_text_length=50,
-                                                     cover_length=15)
+                                                     per_text_length=per_text_length,
+                                                     cover_length=cover_length)
 
             logging.info("切片成功，进行向量存储...")
             pdf_embeddings, embeddings_dim = text_utils.text2vector(pdf_chunk_texts)
