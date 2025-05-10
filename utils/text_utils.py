@@ -17,7 +17,7 @@ class TextUtils:
             consistency_level='Strong'
     ):
         self.collection_name = collection_name
-        self._save_db_path = save_db_path  # TODO： 可设计配置文件
+        self._save_db_path = save_db_path
         self._milvus_client = MilvusClient(uri=self._save_db_path, metric_type=metric_type,
                                            consistency_level=consistency_level)  # TODO： 可设计配置文件
         self._encode_model = SentenceTransformer(encode_model, device=config.device)

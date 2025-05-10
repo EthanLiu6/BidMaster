@@ -18,9 +18,9 @@ warnings.filterwarnings('ignore')
 class QueryTool:
     """用户提问的底层LLM工具"""
 
-    def __init__(self, chat_model, valid_categories):
-        self.tokenizer = chat_model.tokenizer
-        self.model = chat_model.model
+    def __init__(self, _chat_model, valid_categories):
+        self.tokenizer = _chat_model.tokenizer
+        self.model = _chat_model.model
         self.valid_categories = valid_categories
         self.history = []
 
@@ -89,8 +89,8 @@ class QueryTool:
 class Chat:
     """负责主要QA的chat"""
 
-    def __init__(self, chat_model):
-        self.query_tool = QueryTool(chat_model, valid_categories=knowledge_categories.keys())
+    def __init__(self, _chat_model):
+        self.query_tool = QueryTool(_chat_model, valid_categories=knowledge_categories.keys())
 
     def chat_client(self):
         """符合openai标准规范的QA模型client"""
@@ -126,8 +126,8 @@ class Chat:
 
         return SYSTEM_PROMPT, USER_PROMPT
 
-    def answer_generate(self, user_query, *args):
-        return self.query_tool.generate_response(user_input=user_query)
+    def answer_generate(self, total_query, *args):
+        return self.query_tool.generate_response(user_input=total_query)
 
 
 class ChatMilvusClient:
@@ -187,7 +187,7 @@ if __name__ == '__main__':
     log_tool.set_log()
 
     chat_model = ChatModel(model_name="Qwen/Qwen3-0.6B")
-    query_tool = QueryTool(chat_model=chat_model,
+    query_tool = QueryTool(_chat_model=chat_model,
                            valid_categories=list(knowledge_categories.keys())
                            )
     # query_tool = QueryTool(model_name="moka-ai/m3e-base")  # m3e做问答生成不行
@@ -203,7 +203,16 @@ if __name__ == '__main__':
     collection_name = knowledge_categories[cls]
     chat_milvus_client = ChatMilvusClient(uri="../knowledge/vector_knowledge/laws.db")
     search_res = chat_milvus_client.search_knowledge(chat_model=chat_model,
-                                                     collection_name=collection_name)
+                                                     collection_name=collection_name,
+                                                     limit=4)
     # for info in search_res:
     #     print(info)
-    print(search_res)
+    # # print(search_res)
+    context = "\n".join(
+        [res['entity']['sentence'] for res in search_res[0]]
+    )
+
+    chat = Chat(_chat_model=chat_model)
+    sys_prompt, user_prompt = chat.prompt_setting(context=context, user_query=question)
+    answer_generate = chat.answer_generate(sys_prompt + user_prompt)
+    print(answer_generate)
