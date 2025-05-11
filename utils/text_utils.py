@@ -5,6 +5,8 @@ from scripts import config
 
 __all__ = ['TextUtils']
 
+idx = 0
+
 
 class TextUtils:
 
@@ -53,6 +55,8 @@ class TextUtils:
 
     def text2vector(self, texts: list[str] | str):
         texts_embeddings = self._encode_model.encode(texts)
+        logging.info(f'输入texts shape：{(len(texts), len(texts[0]))}')
+        logging.info(f'text2vector之后的texts_embeddings shape：{texts_embeddings.shape}')
         embeddings_dim = len(texts_embeddings[0])
         return texts_embeddings, embeddings_dim
 
@@ -78,7 +82,7 @@ class TextUtils:
         assert embedding_dim == ture_emb_dim, f'向量维度不匹配：{embedding_dim}!={ture_emb_dim}'
         logging.info(f'当前向量存储维度：{embedding_dim}')
         data = []
-        idx = 0
+        global idx
         for sentence, embedding in zip(chunk_texts_list, texts_embeddings):
             data.append({"id": idx, "sentence": sentence, "vector": embedding, "from_doc": from_doc})
             idx += 1

@@ -3,10 +3,10 @@ import os
 import warnings
 from typing import List
 
-# import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
-# from openai import OpenAI
+from sentence_transformers import SentenceTransformer
 from pymilvus.milvus_client import MilvusClient
+
 
 from scripts import config
 from scripts.config import knowledge_categories
@@ -135,8 +135,8 @@ class ChatMilvusClient:
         self._milvus_client = MilvusClient(uri=uri)
 
     def search_knowledge(self,
-                         collection_name,
-                         chat_model,
+                         _collection_name,
+                         _chat_model,
                          limit=3
                          ) -> List[List[dict]]:
         """
@@ -144,20 +144,22 @@ class ChatMilvusClient:
                 List[List[dict]]: A nested list of dicts containing the result data. Embeddings are
                 not included in the result data.
         """
-        question_emb = chat_model.get_embedding(question)
-        question_emb_list = question_emb.tolist()[0]
-        logging.info(f'当前问题进行embedding后的 list shape：{len(question_emb_list), len(question_emb_list[0])}')
+        question_emb = _chat_model.get_sentence_embedding(question)
+        question_emb_list = question_emb.tolist()
+        logging.info(f'当前问题进行embedding后的维度：{len(question_emb_list)}')
 
-        search_res = self._milvus_client.search(
-            collection_name=collection_name,
-            data=question_emb_list,
+        _search_res = self._milvus_client.search(
+            collection_name=_collection_name,
+            data=[
+                question_emb_list
+                ],
             limit=limit,  # Return top limit results
             # TODO: metric_type改写到配置文件
             search_params={"metric_type": "COSINE", "params": {}},  # Inner product distance
             output_fields=["sentence", "from_doc"]
         )
 
-        return search_res
+        return _search_res
 
 
 class ChatModel:
@@ -170,8 +172,10 @@ class ChatModel:
             device_map=config.device
 
         )
+        self._encode_model = SentenceTransformer(model_name, device=config.device)
 
-    def get_embedding(self, text):
+
+    def get_text2token_embedding(self, text):
         inputs = self.tokenizer(text, return_tensors="pt", padding=True, truncation=True).to(self.model.device)
         input_ids = inputs['input_ids']
         logging.info(f'当前text的token_ids：{input_ids}')
@@ -180,12 +184,17 @@ class ChatModel:
 
         return embeddings
 
+    def get_sentence_embedding(self, text):
+        texts_embeddings = self._encode_model.encode(text)
+        return texts_embeddings
+
 
 if __name__ == '__main__':
     from tools import log_tool
 
     log_tool.set_log()
 
+    # chat_model = ChatModel(model_name="../models/Qwen3-0.6B")
     chat_model = ChatModel(model_name="Qwen/Qwen3-0.6B")
     query_tool = QueryTool(_chat_model=chat_model,
                            valid_categories=list(knowledge_categories.keys())
@@ -202,12 +211,11 @@ if __name__ == '__main__':
 
     collection_name = knowledge_categories[cls]
     chat_milvus_client = ChatMilvusClient(uri="../knowledge/vector_knowledge/laws.db")
-    search_res = chat_milvus_client.search_knowledge(chat_model=chat_model,
-                                                     collection_name=collection_name,
-                                                     limit=4)
-    # for info in search_res:
-    #     print(info)
-    # # print(search_res)
+    search_res = chat_milvus_client.search_knowledge(_chat_model=chat_model,
+                                                     _collection_name=collection_name,
+                                                     limit=config.limit)
+    for res in search_res[0]:
+        logging.info(f'查询到的匹配结果：{res}')
     context = "\n".join(
         [res['entity']['sentence'] for res in search_res[0]]
     )
@@ -216,3 +224,14 @@ if __name__ == '__main__':
     sys_prompt, user_prompt = chat.prompt_setting(context=context, user_query=question)
     answer_generate = chat.answer_generate(sys_prompt + user_prompt)
     print(answer_generate)
+    # full_response = ""
+    # for chunk in answer_generate:
+    #     print(chunk)
+    #     if chunk.choices[0].delta.content:  # 检查是否有新内容
+    #         content = chunk.choices[0].delta.content
+    #         print(content, end="", flush=True)  # 逐字打印
+    #         full_response += content
+
+
+
+
