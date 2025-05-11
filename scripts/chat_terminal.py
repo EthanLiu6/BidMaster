@@ -86,8 +86,9 @@ def chat_without_classify():
 if __name__ == '__main__':
     from tools import log_tool
     log_tool.set_log()
-
-    # chat_with_classify()
-
-    chat_without_classify()
+    choice = input("请选择问答内容方式(1为类别化QA，2为全局QA):\n").strip()
+    if choice == '1':
+        chat_with_classify()
+    elif choice == '2':
+        chat_without_classify()
 
