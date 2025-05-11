@@ -66,7 +66,25 @@ class QueryTool:
             print("分类出错:", e)
             return "未知"
 
-    def generate_response(self, user_input):
+    # def generate_response(self, user_input):
+    #     messages = self.history + [{"role": "user", "content": user_input}]
+    #
+    #     text = self.tokenizer.apply_chat_template(
+    #         messages,
+    #         tokenize=False,
+    #         add_generation_prompt=True
+    #     )
+    #
+    #     inputs = self.tokenizer(text, return_tensors="pt").to(config.device)
+    #     response_ids = self.model.generate(**inputs, max_new_tokens=32768)[0][len(inputs.input_ids[0]):].tolist()
+    #     response = self.tokenizer.decode(response_ids, skip_special_tokens=True)
+    #
+    #     # Update history
+    #     self.history.append({"role": "user", "content": user_input})
+    #     self.history.append({"role": "assistant", "content": response})
+    #
+    #     return response
+    def generate_response(self, user_input, stream=False):
         messages = self.history + [{"role": "user", "content": user_input}]
 
         text = self.tokenizer.apply_chat_template(
@@ -75,15 +93,29 @@ class QueryTool:
             add_generation_prompt=True
         )
 
-        inputs = self.tokenizer(text, return_tensors="pt").to(config.device)
-        response_ids = self.model.generate(**inputs, max_new_tokens=32768)[0][len(inputs.input_ids[0]):].tolist()
-        response = self.tokenizer.decode(response_ids, skip_special_tokens=True)
+        inputs = self.tokenizer(text, return_tensors="pt").to(self.model.device)
 
-        # Update history
+        if stream:
+            # 流式生成
+            from transformers import TextStreamer
+            streamer = TextStreamer(self.tokenizer, skip_prompt=True)
+
+            outputs = self.model.generate(
+                **inputs,
+                max_new_tokens=32768,
+                streamer=streamer
+            )
+            response = self.tokenizer.decode(outputs[0], skip_special_tokens=True)
+        else:
+            # 非流式生成（原逻辑）
+            outputs = self.model.generate(**inputs, max_new_tokens=32768)
+            response = self.tokenizer.decode(outputs[0][len(inputs.input_ids[0]):], skip_special_tokens=True)
+
+        # 更新历史记录
         self.history.append({"role": "user", "content": user_input})
         self.history.append({"role": "assistant", "content": response})
 
-        return response
+        return response if not stream else None  # 流式模式下直接通过streamer输出，返回None
 
 
 class Chat:
@@ -126,8 +158,8 @@ class Chat:
 
         return SYSTEM_PROMPT, USER_PROMPT
 
-    def answer_generate(self, total_query, *args):
-        return self.query_tool.generate_response(user_input=total_query)
+    def answer_generate(self, total_query, stream=True, *args):
+        return self.query_tool.generate_response(user_input=total_query, stream=stream)
 
 
 class ChatMilvusClient:
@@ -135,6 +167,7 @@ class ChatMilvusClient:
         self._milvus_client = MilvusClient(uri=uri)
 
     def search_knowledge(self,
+                         query,
                          _collection_name,
                          _chat_model,
                          limit=3
@@ -144,7 +177,7 @@ class ChatMilvusClient:
                 List[List[dict]]: A nested list of dicts containing the result data. Embeddings are
                 not included in the result data.
         """
-        question_emb = _chat_model.get_sentence_embedding(question)
+        question_emb = _chat_model.get_sentence_embedding(query)
         question_emb_list = question_emb.tolist()
         logging.info(f'当前问题进行embedding后的维度：{len(question_emb_list)}')
 
@@ -213,7 +246,8 @@ if __name__ == '__main__':
     chat_milvus_client = ChatMilvusClient(uri="../knowledge/vector_knowledge/laws.db")
     search_res = chat_milvus_client.search_knowledge(_chat_model=chat_model,
                                                      _collection_name=collection_name,
-                                                     limit=config.limit)
+                                                     limit=config.limit,
+                                                     query=question)
     for res in search_res[0]:
         logging.info(f'查询到的匹配结果：{res}')
     context = "\n".join(
