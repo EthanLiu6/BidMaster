@@ -243,7 +243,7 @@ if __name__ == '__main__':
     print(cls)
 
     collection_name = knowledge_categories[cls]
-    chat_milvus_client = ChatMilvusClient(uri="../knowledge/vector_knowledge/laws.db")
+    chat_milvus_client = ChatMilvusClient(uri=config.knowledge_categories_db[collection_name])
     search_res = chat_milvus_client.search_knowledge(_chat_model=chat_model,
                                                      _collection_name=collection_name,
                                                      limit=config.limit,
