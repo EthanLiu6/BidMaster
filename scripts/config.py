@@ -21,9 +21,9 @@ pair_data_path = [
 ]
 
 # 模型
-llm_model = "../models/Qwen3-0.6B"
+# llm_model = "../models/Qwen3-0.6B"
 # llm_model = "Qwen/Qwen3-1.7B"
-# llm_model = "Qwen/Qwen3-0.6B"
+llm_model = "Qwen/Qwen3-0.6B"
 
 emb_model = '../models/Qwen3-0.6B'
 # emb_model = 'moka-ai/m3e-base'
