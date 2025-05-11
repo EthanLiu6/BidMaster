@@ -26,6 +26,16 @@ pair_data_path: list[dict[str, str]] = [
     }
 ]
 
+
+# 总的文档（不采取分类）
+total_knowledge = {
+    'total_name': '总文档',
+    'total_collection_name': 'total_knowledge',
+    'total_docs_path': '../knowledge/raw_knowledge/total_docs',
+    'total_docs_db_path': '../knowledge/vector_knowledge/total_docs.db'
+}
+
+
 # 模型
 # llm_model = "../models/Qwen3-0.6B"
 # llm_model = "Qwen/Qwen3-1.7B"
@@ -47,7 +57,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 log_file = '../logs/total_logs.log'
 
 # limit: for search tops limit
-limit = 8
+limit = 10
 
 if __name__ == '__main__':
     pass
