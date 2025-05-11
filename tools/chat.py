@@ -24,9 +24,9 @@ class QueryTool:
         self.valid_categories = valid_categories
         self.history = []
 
-        logging.info(f'当前知识数据库含有类别：{self.valid_categories}')
 
     def classify_with_local_llm(self, user_query):
+        logging.info(f'当前知识数据库含有类别：{self.valid_categories}')
         try:
             # 构建提示
             prompt = f"""你是分类助手，请将用户的问题分类为以下类别之一：{self.valid_categories}。直接输出分类结果，不要解释。
@@ -139,7 +139,7 @@ class Chat:
                        ):
         if not system_prompt:
             SYSTEM_PROMPT = """
-                Human: 你是一个招投标行业智能助手，你可以通过所给知识库内容找到问题的答案，并且能够自我整理内容并回复用户
+                Human: 你是一个招投标行业智能助手，你可以通过相关内容中整理出问题的答案
                 """
         else:
             SYSTEM_PROMPT = system_prompt
@@ -228,7 +228,7 @@ if __name__ == '__main__':
     log_tool.set_log()
 
     # chat_model = ChatModel(model_name="../models/Qwen3-0.6B")
-    chat_model = ChatModel(model_name="Qwen/Qwen3-0.6B")
+    chat_model = ChatModel(model_name=config.llm_model)
     query_tool = QueryTool(_chat_model=chat_model,
                            valid_categories=list(knowledge_categories.keys())
                            )
