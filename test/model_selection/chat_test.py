@@ -15,12 +15,13 @@ from transformers import AutoModelForCausalLM
 
 
 class ChatModel:
-    def __init__(self, QA_model_name, sentence_emb_model_name=None):
-        self.QA_model_name = QA_model_name
+    def __init__(self, QA_model_path, sentence_emb_model_name=None):
+        self.QA_model_name = config.model_name
+        self.QA_model_path = QA_model_path
         self.sentence_emb_model_name = sentence_emb_model_name
-        self.tokenizer = AutoTokenizer.from_pretrained(self.QA_model_name)
+        self.tokenizer = AutoTokenizer.from_pretrained(self.QA_model_path)
         self.model = AutoModelForCausalLM.from_pretrained(
-            self.QA_model_name,
+            self.QA_model_path,
             torch_dtype="auto",
             device_map=config.device
         )
@@ -103,7 +104,7 @@ class ChatTool:
 
 class Evaluation:
     def __init__(self, _chat_model: ChatModel, QA_store_path):
-        self.QA_model_name = config.llm_model
+        self.QA_model_name = config.model_name
         self.chat_model = _chat_model
         self.QA_store_path = Path(QA_store_path)
         logging.info(f'当前使用模型：{self.QA_model_name}')
@@ -157,7 +158,7 @@ if __name__ == '__main__':
 
     set_log()
 
-    chat_model = ChatModel(QA_model_name=config.model_name)
+    chat_model = ChatModel(QA_model_path=config.llm_model)
     chat_tool = ChatTool(_chat_model=chat_model)
     evaluation = Evaluation(_chat_model=chat_model, QA_store_path=config.project_root / 'logs/QA_store.xlsx')
 

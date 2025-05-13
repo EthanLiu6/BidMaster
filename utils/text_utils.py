@@ -14,7 +14,7 @@ class TextUtils:
             self,
             save_db_path,
             collection_name,
-            encode_model: str,
+            sentence_emd_model_path: str,
             metric_type='COSINE',
             consistency_level='Strong'
     ):
@@ -22,7 +22,7 @@ class TextUtils:
         self._save_db_path = save_db_path
         self._milvus_client = MilvusClient(uri=self._save_db_path, metric_type=metric_type,
                                            consistency_level=consistency_level)  # TODO： 可设计配置文件
-        self._encode_model = SentenceTransformer(encode_model, device=config.device)
+        self._encode_model = SentenceTransformer(sentence_emd_model_path, device=config.device)
 
     def chunk_texts(
             self,
