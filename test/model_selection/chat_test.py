@@ -157,7 +157,7 @@ if __name__ == '__main__':
 
     set_log()
 
-    chat_model = ChatModel(QA_model_name=config.llm_model)
+    chat_model = ChatModel(QA_model_name=config.model_name)
     chat_tool = ChatTool(_chat_model=chat_model)
     evaluation = Evaluation(_chat_model=chat_model, QA_store_path=config.project_root / 'logs/QA_store.xlsx')
 

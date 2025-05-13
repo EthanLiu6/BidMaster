@@ -7,7 +7,6 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 from sentence_transformers import SentenceTransformer
 from pymilvus.milvus_client import MilvusClient
 
-
 from scripts import config
 from scripts.config import knowledge_categories
 
@@ -23,7 +22,6 @@ class QueryTool:
         self.model = _chat_model.model
         self.valid_categories = valid_categories
         self.history = []
-
 
     def classify_with_local_llm(self, user_query):
         logging.info(f'当前知识数据库含有类别：{self.valid_categories}')
@@ -185,7 +183,7 @@ class ChatMilvusClient:
             collection_name=_collection_name,
             data=[
                 question_emb_list
-                ],
+            ],
             limit=limit,  # Return top limit results
             # TODO: metric_type改写到配置文件
             search_params={"metric_type": "COSINE", "params": {}},  # Inner product distance
@@ -207,7 +205,6 @@ class ChatModel:
         )
         self._encode_model = SentenceTransformer(model_name, device=config.device)
 
-
     def get_text2token_embedding(self, text):
         inputs = self.tokenizer(text, return_tensors="pt", padding=True, truncation=True).to(self.model.device)
         input_ids = inputs['input_ids']
@@ -228,7 +225,7 @@ if __name__ == '__main__':
     log_tool.set_log()
 
     # chat_model = ChatModel(model_name="../models/Qwen3-0.6B")
-    chat_model = ChatModel(model_name=config.llm_model)
+    chat_model = ChatModel(model_name=config.model_name)
     query_tool = QueryTool(_chat_model=chat_model,
                            valid_categories=list(knowledge_categories.keys())
                            )
@@ -265,7 +262,3 @@ if __name__ == '__main__':
     #         content = chunk.choices[0].delta.content
     #         print(content, end="", flush=True)  # 逐字打印
     #         full_response += content
-
-
-
-
