@@ -26,3 +26,4 @@ __pycache__
 
 # 取消忽略
 !./resources/models/models.list
+!./resources/models/down_models.py
