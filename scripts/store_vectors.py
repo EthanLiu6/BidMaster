@@ -36,7 +36,7 @@ def store_with_classify():
 
         save_db_path = per_pair_data_path[knowledge_and_db_path[1]]
         text_utils = TextUtils(save_db_path=save_db_path,
-                               encode_model=emb_model,
+                               sentence_emd_model_path=emb_model,
                                collection_name=category)
         logging.info(f'创建向量数据库：{save_db_path}')
         logging.info(f'使用向量模型：{emb_model}')
@@ -94,7 +94,7 @@ def store_without_classify():
     logging.info(f"读取到的'{category}'类别所有pdf路径：{pdfs_path_list}")
 
     text_utils = TextUtils(save_db_path=total_docs_db_path,
-                           encode_model=emb_model,
+                           sentence_emd_model_path=emb_model,
                            collection_name=total_collection_name)
     logging.info(f'创建向量数据库：{total_docs_db_path}')
     logging.info(f'使用向量模型：{emb_model}')

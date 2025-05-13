@@ -194,16 +194,18 @@ class ChatMilvusClient:
 
 
 class ChatModel:
-    def __init__(self, model_name):
-        self.model_name = model_name
-        self.tokenizer = AutoTokenizer.from_pretrained(model_name)
+    def __init__(self, model_path, sentence_model_path=None):
+        self.model_path = model_path
+        self.tokenizer = AutoTokenizer.from_pretrained(model_path)
         self.model = AutoModelForCausalLM.from_pretrained(
-            model_name,
+            model_path,
             torch_dtype="auto",
             device_map=config.device
 
         )
-        self._encode_model = SentenceTransformer(model_name, device=config.device)
+        if sentence_model_path:
+            self._encode_model = SentenceTransformer(sentence_model_path, device=config.device)
+
 
     def get_text2token_embedding(self, text):
         inputs = self.tokenizer(text, return_tensors="pt", padding=True, truncation=True).to(self.model.device)
@@ -225,7 +227,7 @@ if __name__ == '__main__':
     log_tool.set_log()
 
     # chat_model = ChatModel(model_name="../models/Qwen3-0.6B")
-    chat_model = ChatModel(model_name=config.model_name)
+    chat_model = ChatModel(model_path=config.model_name)
     query_tool = QueryTool(_chat_model=chat_model,
                            valid_categories=list(knowledge_categories.keys())
                            )
