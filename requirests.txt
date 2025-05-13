@@ -8,3 +8,6 @@ sentence-transformers
 
 # openai
 pymilvus
+
+# model_selection coding used
+openpyxl
