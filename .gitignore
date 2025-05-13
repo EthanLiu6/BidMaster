@@ -16,7 +16,7 @@ __pycache__
 
 **/temp.py
 
-./logs/*
+./logs/*.*
 
 # 现在LLM的tokenizer配置文件较大
 **/tokenizer.json
