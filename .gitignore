@@ -17,3 +17,13 @@ __pycache__
 **/temp.py
 
 ./logs/*
+
+# 现在LLM的tokenizer配置文件较大
+**/tokenizer.json
+
+# 忽略 data/ 下的所有子目录（递归）
+./resources/**/*
+
+# 取消忽略
+!./resources/models/models.list
+!./resources/models/down_models.py
