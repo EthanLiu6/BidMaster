@@ -8,7 +8,7 @@ from tools.chat import ChatModel, QueryTool, ChatMilvusClient, Chat
 
 
 def chat_with_classify():
-    chat_model = ChatModel(model_name=config.llm_model)
+    chat_model = ChatModel(model_name=config.model_name)
     query_tool = QueryTool(_chat_model=chat_model,
                            valid_categories=list(config.knowledge_categories.keys())
                            )
@@ -54,7 +54,7 @@ def chat_with_classify():
 
 def chat_without_classify():
     """使用总文档直接查找并回答"""
-    chat_model = ChatModel(model_name=config.llm_model)
+    chat_model = ChatModel(model_name=config.model_name)
 
     while True:
         print("\n" + "=" * 50)

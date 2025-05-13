@@ -42,6 +42,7 @@ model_name = "qwen/Qwen3-0.6B"
 llm_model = model_path / model_name
 # llm_model = model_path / "qwen/Qwen3-1.7B"
 
+emb_model_name = 'moka-ai/m3e-base'
 # emb_model = model_path / 'moka-ai/m3e-base'
 emb_model = model_path / "qwen/Qwen3-0.6B"
 
