@@ -160,7 +160,7 @@ if __name__ == '__main__':
 
     chat_model = ChatModel(QA_model_path=config.llm_model)
     chat_tool = ChatTool(_chat_model=chat_model)
-    evaluation = Evaluation(_chat_model=chat_model, QA_store_path=config.project_root / 'logs/QA_store.xlsx')
+    evaluation = Evaluation(_chat_model=chat_model, QA_store_path=config.project_root + '/logs/QA_store.xlsx')
 
     set_prompt = False
     while True:
