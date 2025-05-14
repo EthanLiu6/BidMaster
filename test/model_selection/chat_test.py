@@ -10,8 +10,10 @@ import pandas as pd
 
 from sentence_transformers import SentenceTransformer
 from scripts import config
-from transformers import AutoTokenizer, TextStreamer
+from transformers import AutoTokenizer
 from transformers import AutoModelForCausalLM
+from transformers import TextIteratorStreamer
+import threading
 
 
 class ChatModel:
@@ -75,20 +77,15 @@ class ChatTool:
             add_generation_prompt=is_set_prompt
         )
 
-        logging.info(f'apply_chat_template之后的内容：{text}')
+        logging.info(f'apply_chat_template之后的内容：\n{text}')
 
         inputs = self.tokenizer(text, return_tensors="pt").to(self.QA_model.device)
 
         if stream:
             # 流式打印生成并拿到回复结果
-            streamer = CollectingStreamer(self.tokenizer, skip_prompt=True)
-
-            self.QA_model.generate(
-                **inputs,
-                max_new_tokens=32768,
-                streamer=streamer
-            )
-            _response = streamer.output  # ✅ 获取完整回复
+            streamer = CollectingStreamer(self.tokenizer)
+            streamer.stream_generate(self.QA_model, inputs)
+            _response = streamer.output
 
         else:
             # 非流式生成（原逻辑）
@@ -142,14 +139,26 @@ class Evaluation:
         logging.info(f"✅ 问答已保存至 {self.QA_store_path}")
 
 
-class CollectingStreamer(TextStreamer):
-    def __init__(self, tokenizer, skip_prompt=True):
-        super().__init__(tokenizer, skip_prompt=skip_prompt)
+class CollectingStreamer:
+    def __init__(self, tokenizer):
+        self.tokenizer = tokenizer
         self.output = ""
 
-    def on_text(self, text: str, **kwargs):
-        self.output += text  # ✅ 收集输出
-        print(text, end='', flush=True)  # ✅ 流式打印到控制台
+    def stream_generate(self, model, inputs, max_new_tokens=4096):
+        streamer = TextIteratorStreamer(
+            self.tokenizer,
+            skip_special_tokens=True,
+            skip_prompt=True
+        )
+        thread = threading.Thread(
+            target=model.generate,
+            kwargs={**inputs, "max_new_tokens": max_new_tokens, "streamer": streamer}
+        )
+        thread.start()
+
+        for new_text in streamer:
+            print(new_text, end="", flush=True)
+            self.output += new_text
 
 
 if __name__ == '__main__':
@@ -160,7 +169,7 @@ if __name__ == '__main__':
 
     chat_model = ChatModel(QA_model_path=config.llm_model)
     chat_tool = ChatTool(_chat_model=chat_model)
-    evaluation = Evaluation(_chat_model=chat_model, QA_store_path=config.project_root / 'logs/QA_store.xlsx')
+    evaluation = Evaluation(_chat_model=chat_model, QA_store_path=config.project_root + '/logs/QA_store.xlsx')
 
     set_prompt = False
     while True:
@@ -172,5 +181,6 @@ if __name__ == '__main__':
         response = chat_tool.generate_response(user_input=question,
                                                is_set_prompt=set_prompt,
                                                stream=True)
+        print('回复：', response)
 
         evaluation.story_QA(user_question=question, generate_text=response)

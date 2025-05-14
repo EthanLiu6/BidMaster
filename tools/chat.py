@@ -205,6 +205,8 @@ class ChatModel:
         )
         if sentence_model_path:
             self._encode_model = SentenceTransformer(sentence_model_path, device=config.device)
+        else:
+            self._encode_model = SentenceTransformer(model_path, device=config.device)
 
 
     def get_text2token_embedding(self, text):
