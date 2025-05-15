@@ -1,7 +1,7 @@
 import logging
 import sys
 
-from scripts import config
+from src import config
 
 
 def set_log():

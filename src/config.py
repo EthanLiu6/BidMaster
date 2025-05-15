@@ -38,13 +38,16 @@ total_knowledge = {
 
 # 模型
 model_path = project_root + '/resources/models/'
-model_name = "qwen/Qwen3-0.6B"
+model_name = "qwen/Qwen3-0___6B"
 llm_model = model_path + model_name
 # llm_model = model_path + "qwen/Qwen3-1.7B"
 
 emb_model_name = 'moka-ai/m3e-base'
 # emb_model = model_path + 'moka-ai/m3e-base'
 emb_model = model_path + "qwen/Qwen3-0.6B"
+
+# 深度思考
+enable_thinking = False
 
 # 句子切分配置
 per_text_length = 512

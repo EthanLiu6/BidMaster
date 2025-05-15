@@ -5,7 +5,7 @@ from tools.log_tool import set_log
 from utils.text_utils import TextUtils
 from utils import docs_utils
 from tools.docs_tools import DocsTools
-import config
+from src import config
 
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 

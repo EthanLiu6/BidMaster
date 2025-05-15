@@ -7,8 +7,8 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 from sentence_transformers import SentenceTransformer
 from pymilvus.milvus_client import MilvusClient
 
-from scripts import config
-from scripts.config import knowledge_categories
+from src import config
+from src.config import knowledge_categories
 
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 warnings.filterwarnings('ignore')
@@ -88,7 +88,8 @@ class QueryTool:
         text = self.tokenizer.apply_chat_template(
             messages,
             tokenize=False,
-            add_generation_prompt=True
+            add_generation_prompt=True,
+            enable_thinking=config.enable_thinking
         )
 
         inputs = self.tokenizer(text, return_tensors="pt").to(self.model.device)
@@ -229,7 +230,7 @@ if __name__ == '__main__':
     log_tool.set_log()
 
     # chat_model = ChatModel(model_name="../models/Qwen3-0.6B")
-    chat_model = ChatModel(model_path=config.model_name)
+    chat_model = ChatModel(model_path=config.llm_model)
     query_tool = QueryTool(_chat_model=chat_model,
                            valid_categories=list(knowledge_categories.keys())
                            )
