@@ -3,8 +3,8 @@
 """
 import logging
 
-import config
-from tools.chat import ChatModel, QueryTool, ChatMilvusClient, Chat
+from src import config
+from src.chat import ChatModel, QueryTool, ChatMilvusClient, Chat
 
 
 def chat_with_classify():

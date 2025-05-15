@@ -1,7 +1,7 @@
 from sentence_transformers import SentenceTransformer
 from pymilvus import MilvusClient
 import logging
-from scripts import config
+from src import config
 
 __all__ = ['TextUtils']
 

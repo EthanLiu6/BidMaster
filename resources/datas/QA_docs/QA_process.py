@@ -44,7 +44,7 @@ def process_all_documents(folder_path):
 
 if __name__ == "__main__":
     folder = "./Bid_QA_dist_data01/"
-    output_excel = "./问答数据_含法律依据.xlsx"
+    output_excel = "./QA_with_legal_basis.xlsx"
 
     qa_data = process_all_documents(folder)
     df = pd.DataFrame(qa_data)
