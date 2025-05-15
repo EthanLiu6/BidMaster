@@ -9,11 +9,13 @@ from datetime import datetime
 import pandas as pd
 
 from sentence_transformers import SentenceTransformer
-from scripts import config
+from src import config
 from transformers import AutoTokenizer
 from transformers import AutoModelForCausalLM
 from transformers import TextIteratorStreamer
 import threading
+
+from question_get import get_question
 
 
 class ChatModel:
@@ -58,26 +60,35 @@ class ChatTool:
     @classmethod
     def set_prompt(cls, prompt: str = None):
         if not prompt:
-            prompt = f"""你是一名招投标专业领域的智能助手，请根据问题进行相关回答。\n"""
+            prompt = f"""你是一名招投标专业领域的智能助手，请根据问题进行相关回答。（不要进行深度思考）\n"""
         else:
             prompt = prompt
         return prompt
 
-    def generate_response(self, user_input, is_set_prompt: bool = False, stream=False):
+    def generate_response(self, user_input, is_set_prompt: bool = False, use_history=False, stream=False):
         if not is_set_prompt:
-            messages = self.history + [{"role": "user", "content": user_input}]
+            if use_history:
+                messages = self.history + [{"role": "user", "content": user_input}]
+            else:
+                messages = [{"role": "user", "content": user_input}]
         else:
             prompt = self.set_prompt()
-            messages = self.history + [{"role": "user", "content": prompt + user_input}]
-        logging.info(f'当前对话含有内容：{messages}')
+            if use_history:
+                messages = self.history + [{"role": "user", "content": prompt + user_input}]
+            else:
+                messages = [{"role": "user", "content": prompt + user_input}]
+
+        if use_history:
+            logging.info(f'当前对话轮数：{len(messages)}')
 
         text = self.tokenizer.apply_chat_template(
             messages,
             tokenize=False,
-            add_generation_prompt=is_set_prompt
+            add_generation_prompt=is_set_prompt,
+            enable_thinking=config.enable_thinking
         )
 
-        logging.info(f'apply_chat_template之后的内容：\n{text}')
+        logging.info(f'apply_chat_template之后的内容长度：{len(text)}')
 
         inputs = self.tokenizer(text, return_tensors="pt").to(self.QA_model.device)
 
@@ -172,15 +183,17 @@ if __name__ == '__main__':
     evaluation = Evaluation(_chat_model=chat_model, QA_store_path=config.project_root + '/logs/QA_store.xlsx')
 
     set_prompt = False
-    while True:
-        question = input("请输入问题（输入 q 退出）: ").strip()
-        if question.lower() == 'q':
+
+    QA_path = config.project_root + '/resources/datas/QA_docs/QA_with_legal_basis.xlsx'
+    for question in get_question(QA_path):
+        if question.lower() == '':
             print("退出问答系统")
             break
 
         response = chat_tool.generate_response(user_input=question,
                                                is_set_prompt=set_prompt,
+                                               use_history=False,
                                                stream=True)
-        print('回复：', response)
+        print('\n回复：\n', response)
 
         evaluation.story_QA(user_question=question, generate_text=response)
