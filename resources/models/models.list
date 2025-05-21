@@ -1,9 +1,14 @@
 sentence model:
 'moka-ai/m3e-base'
+'m3e-large'
 'sentence-transformers/all-MiniLM-L12-v2'
-"BAAI/bge-large-zh-v1.5"
-"BAAI/bge-m3"
 "BAAI/bge-small-zh-v1.5"
+"BAAI/bge-m3"
+"BAAI/bge-large-zh-v1.5"
+'有道：BCE'
+'ChatLaw-text2vec'
+'richinfoai/ritrieve_zh_v1'
+'GTE-Chinese'
 
 QA model:
 'Qwen/Qwen3-32B'✅❌
